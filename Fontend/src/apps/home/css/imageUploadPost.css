@@ -1,0 +1,61 @@
+.shadow #imageUploadPost{
+    position: absolute;
+    top: 10px;
+    left: 35%;
+    right: 35%;
+    background-color: white;
+    border-radius: 1px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.4);
+    overflow-y: auto;
+    bottom: 10px;
+    width: 30%;
+}
+.shadow #imageUploadPost>#image{
+    width: 100%;
+    background-color: transparent;
+    max-height: 400px;
+    overflow: hidden;
+}
+.shadow #imageUploadPost>#progressBar{
+    height: 5px;
+    width: 0;
+    background-color: #3897f0;
+}
+.shadow #imageUploadPost>#image>img{
+    width: 100%;
+}
+.shadow #imageUploadPost #block{
+    width: 90%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.shadow #imageUploadPost #block #caption{
+    margin-top: 50px;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+.shadow #imageUploadPost #block>#caption>input{
+    border: none;
+}
+.shadow #imageUploadPost>#block>#uploadAction{
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+.shadow #imageUploadPost>#block>#uploadAction>button{
+    color: #3897f0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+.shadow #imageUploadPost>#block>#uploadAction>span:last-child{
+    margin-left: 10px;
+    color: red;
+    margin-right: 10px;
+}

@@ -1,0 +1,66 @@
+#sugg{
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.2),-0 -0 1px 0 rgba(0,0,0,0.2);
+    border-radius: 3px;
+    padding:5% 5% 5% 5%;
+    margin-top: 20px;
+}
+#sugg #head{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+#sugg #head>span:first-child{
+    color:rgba(0,0,0,0.6)
+}
+#sugg #head>span:last-child{
+    color:rgba(0,0,0,0.8);
+    font-weight: 600;
+}
+#sugg #content{
+    clear: both;
+    width: 100%;
+
+}
+#sugg .item{
+    clear: both;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+#sugg .item:last-child{
+    border: none;
+}
+#sugg .item>img{
+    float: left;
+    height: 35px;
+    width: 35px;
+    border-radius: 35px;
+    padding: 3px;
+    border: 2px solid crimson;
+}
+#sugg .item>#pack{
+    float: left;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    height: 40px;
+    align-items: start;
+}
+#sugg .item>#pack>#username{
+    font-size: 14px;
+    font-weight: 600;
+}
+#sugg .item>#pack>#foo{
+    color:rgba(0,0,0,0.6)
+}
+#sugg .item>#more{
+    float: right;
+    color: #3897f0;
+    font-size: 13px;
+}

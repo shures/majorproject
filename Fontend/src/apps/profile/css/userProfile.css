@@ -1,0 +1,184 @@
+#userProfile{
+    position: absolute;
+    top: 95px;
+    left: 14%;
+    right: 14%;
+    display: flex;
+    align-items:  center;
+    flex-direction: column;
+}
+#userProfile>#about{
+    display: flex;
+    flex-direction: row;
+}
+#userProfile>#about>#image{
+    width:  160px;
+    height: 160px;
+    border-radius: 160px;
+    overflow: hidden;
+}
+#userProfile>#about>#image>img{
+     width: 160px;
+}
+#userProfile>#about>#detail{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+}
+#userProfile>#about>#detail>#foo{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+#userProfile>#about>#detail>#foo>span{
+    font-weight: bold;
+}
+#userProfile>#about>#detail>#foo>div{
+    margin-left: 20px;
+    color: #3897f0;
+}
+#userProfile>#about>#detail>#activity{
+    margin-top: 10px;
+}
+#userProfile>#about>#detail>#activity>#foo{
+    display: flex;
+    flex-direction: row;
+}
+#userProfile>#about>#detail>#activity>#foo>span:first-child{
+
+}
+#userProfile>#about>#detail>#activity>#foo>span:last-child{
+    margin-left: 10px;
+    font-weight: bold;
+}
+#userProfile>#about>#detail>#more{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+#userProfile>#about>#detail>#name{
+    margin-top: 8px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+#userProfile>#about>#detail>#name>span:nth-child(2) {
+    font-size: 13px;
+    font-weight: 100;
+    opacity: 0.5;
+}
+
+#userProfile>#about>#detail>#more>span{
+    color: rgba(0,0,0,0.7);
+    margin-top: 8px;
+}
+#userProfile>#about>#detail>#blue{
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: darkblue;
+    opacity: 0.8;
+    padding-top: 5px;
+    margin-top: 10px;
+}
+#userProfile>#menu{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+}
+#userProfile>#menu>span{
+    color:rgba(0,0,0,0.7);
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+#userProfile>#menu>span:first-child{
+    color: black;
+}
+#userProfile>#gridView{
+    clear:both;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#userProfile>#gridView>#post{
+    width: 615px;
+    display: flex;
+    flex-direction: column;
+}
+
+#userProfile #gridView #post .row{
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#userProfile #gridView #post .row>.item{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+}
+#userProfile #gridView #post .row>.item:hover #hover{
+    display: block;
+}
+#userProfile #gridView #post .row>.item>#hover{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left:0;
+    background-color: rgba(0,0,0,0.4);
+    font-size: 14px;
+    display: none;
+}
+#userProfile #gridView #post .row>.item>#hover>#username{
+    color: white;
+    margin-top: 8px;
+    margin-left: 10%;
+}
+#userProfile #gridView #post .row>.item>#hover>img{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+}
+#userProfile #gridView #post .row>.item>#hover>#caption{
+    width: 80%;
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
+    color: white;
+    margin-top: 10px;
+}
+#userProfile #gridView #post .row>.item>#hover>#status{
+    bottom: 10px;
+    left: 10%;
+    position: absolute;
+    display: flex;
+    color: white;
+}
+#userProfile #gridView #post .row>.item>#hover>#status>.pack{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+}
+#userProfile #gridView #post .row>.item>#hover>#status>.pack>span{
+    margin-left: 5px;
+}
+#userProfile #gridView #post .row>.item>#hover>#status>.pack>img{
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,1);
+    border-radius: 20px;
+    padding: 3px;
+}
+#userProfile #gridView #post .row>.item>img{
+    width: 100%;
+}

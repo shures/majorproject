@@ -1,0 +1,149 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(250, 250, 250);
+}
+#login{
+    width: 50%;
+    margin-left: 20%;
+    border-radius: 3px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#login #left{
+    width: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#login #left>#app_name{
+    margin-top: 20px;
+    font-size: 18px;
+    color: rgba(0,0,0,0.7);
+}
+#login #left>.input{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+    justify-content: space-between;
+    align-items: center;
+}
+#login #left>.input>input[type="text"],#left>.input>input[type="password"]{
+    display: block;
+    border: none;
+    height: 27px;
+    width: 73%;
+    padding-left: 7%;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    box-shadow: inset 0 0  1px 0 rgba(0,0,255,0.8);
+}
+#login #left>.input>#status{
+    height: 25px;
+}
+#login .input>#status>img{
+    height: 23px;
+    width: 23px;
+}
+#login #left>input[type="submit"]{
+    border-radius: 2px;
+    border: none;
+    height: 32px;
+    width: 80px;
+    font-size: 14px;
+    margin-top: 20px;
+    background-color: #11a01c;
+    color: white;
+}
+#login #left>#terms{
+    font-size: 14px;
+    margin-top: 10px;
+    color: rgba(0,0,0,0.5);
+    clear: both;
+    display: block;
+}
+#login #left>#link{
+    font-size: 14px;
+    color: rgba(0,0,0,0.7);
+    margin-top: 20px;
+}
+#login #left>#forget_pass_link{
+    font-size: 14px;
+    color: rgba(0,0,0,0.7);
+    margin-top: 20px;
+}
+#login #left>#error_message{
+    font-size: 14px;
+    color: red;
+    margin-top: 10px;
+}
+#login #left>#error_message>span{
+    display: block;
+    margin-top: 5px;
+}
+#login #left>#link>a{
+    color:darkgreen;
+    text-decoration: none;
+}
+
+#or{
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+}
+#or>#v_line{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+#v_line>span{
+    font-size: 18px;
+    color: rgba(0,0,0,0.5);
+}
+#v_line>div{
+    width: 1px;
+    background-color: rgba(0,0,0,0.3);
+    flex: 4;
+}
+#or>#facebook_login{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#or>#facebook_login>img{
+    width: 40%;
+    opacity: 0.7;
+}
+#or>#facebook_login>#fb_login{
+    height: 25px;
+    background-color: #3897f0;
+    border-radius: 2px;
+    flex-direction: row;
+    display: flex;
+    margin-top: 20px;
+    justify-content: start;
+    align-items: center;
+    padding: 0 10px 0 5px;
+}
+#or>#facebook_login>#fb_login>img{
+    height: 15px;
+}
+#or>#facebook_login>#fb_login>span{
+    color: white;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
+
+
+

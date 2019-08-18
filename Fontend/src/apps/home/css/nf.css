@@ -1,0 +1,105 @@
+#cnf{
+    width: 95%;
+    overflow: hidden;
+    padding-left: 5%;
+    margin-top: 50px;
+    height: 300px;
+    overflow-y: auto;
+}
+#cnf #head{
+    margin-left: 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 5px;
+    color: #3897f0;
+    font-weight: 600;
+    margin-top: 10px;
+}
+#cnf #content{
+    margin-top: 8px;
+    padding:5px 5px 5px 10px;
+    font-size: 14px;
+    overflow: hidden;
+}
+#cnf #content>.item{
+    clear: both;
+    margin-top: 5px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+#cnf #content>.item>img{
+    height: 35px;
+    width: 35px;
+    border-radius: 35px;
+    float: left;
+    padding: 3px;
+    border: 2px solid red;
+}
+#cnf #content>.item>#pack{
+    float: left;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40px;
+}
+#cnf #content>.item>#pack>#progress_bar{
+    height: 2px;
+    background-color: rgba(0,0,0,0.5);
+    width: 150px;
+}
+#cnf #content>.item>#pack>#progress_bar>div{
+    height: 2px;
+    background-color: #3897f0;
+    width: 0;
+}
+#cnf #content>.item>#pack>span:nth-child(2){
+    color: rgba(0,0,0,0.7);
+}
+
+#cnf #content>.item>.image{
+    clear:both;
+    overflow: hidden;
+}
+#cnf #content>.item>.image>img{
+    height: 45px;
+    width: 45px;
+    float: left;
+    border-radius: 3px;
+    border: 1px dashed crimson;
+    padding: 2px;
+}
+#cnf #content>.item>.image>#pack{
+    float: left;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50px;
+}
+#cnf #content>.item>.image>#pack>#progress_bar{
+    height: 2px;
+    background-color: rgba(0,0,0,0.5);
+    width: 150px;
+}
+#cnf #content>.item>.image>#pack>#progress_bar>div{
+    height: 2px;
+    background-color: #3897f0;
+    width: 0;
+}
+#cnf #content>.item>.image>#pack>span:nth-child(2){
+    color: rgba(0,0,0,0.7);
+}
+#cnf #content>.item>#caption{
+    margin-top: 20px;
+    clear: both;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#cnf #content>.item>#caption>input{
+    border: none;
+    padding-bottom: 8px;
+}
+#cnf #content>.item>#update{
+    color: #3897f0;
+    margin-top: 10px;
+}

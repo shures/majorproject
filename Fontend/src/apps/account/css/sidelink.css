@@ -1,0 +1,15 @@
+#side_link{
+    width: 50%;
+    left: 20%;
+    padding-left: 3px;
+    position: absolute;
+    bottom: 30px;
+}
+#side_link>span{
+    float: left;
+    margin-right:70px;
+    font-size: 14px;
+    color:rgba(0,0,0,0.7)
+}
+
+

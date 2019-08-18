@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fb6240f0-d4ae-4921-a5af-2b3f2a3e6eda" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Fontend/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="21" selection-start-line="6" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>account</find>
+      <find>.post</find>
+      <find>#sugg</find>
+      <find>katrina.jpeg</find>
+      <find>collection</find>
+      <find>#coll</find>
+      <find>#videoPost</find>
+      <find>videoPost</find>
+      <find>#videoUploadPost</find>
+      <find>#trending</find>
+      <find>u_profile</find>
+      <find>pro_detail</find>
+      <find>#c_container</find>
+      <find>#box</find>
+      <find>signUp</find>
+      <find>handleChange</find>
+      <find>profile_upload_box</find>
+      <find>#profile_upload_box</find>
+      <find>foot</find>
+      <find>container</find>
+      <find>form</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>#postUp</replace>
+      <replace>#follow #container</replace>
+      <replace>coding.jpg</replace>
+      <replace>coll</replace>
+      <replace>#c_container</replace>
+      <replace>.shadow #videoPost</replace>
+      <replace>#videoUploadPost</replace>
+      <replace>#imageUploadPost</replace>
+      <replace>#userProfile #gridView #post</replace>
+      <replace>myProfile</replace>
+      <replace>detail</replace>
+      <replace>#collection</replace>
+      <replace>signUp</replace>
+      <replace>#signUp</replace>
+      <replace>#left</replace>
+      <replace>handleInput</replace>
+      <replace>loadPP</replace>
+      <replace>#uploadPP</replace>
+      <replace>container</replace>
+      <replace>block</replace>
+      <replace>#block</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/Fontend/src/apps</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Fontend/src/apps/test/photos.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/common/css/shadow.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/test/video.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/video.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/trending/css/trending.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/trending/component/trending.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/profile/css/mp.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/css/signup.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/components/signup.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/css/login.css" />
+        <option value="$PROJECT_DIR$/myprofile/urls.py" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/profile/components/up.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/profile/css/userProfile.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/profile/css/myProfile.css" />
+        <option value="$PROJECT_DIR$/Backend/views.py" />
+        <option value="$PROJECT_DIR$/app/urls.py" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/tranding.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/home.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/components/tranding.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/sugg.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/user.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/imageUploadPost.css" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/videoUploadPost.css" />
+        <option value="$PROJECT_DIR$/myprofile/models.py" />
+        <option value="$PROJECT_DIR$/home/urls.py" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/css/post.css" />
+        <option value="$PROJECT_DIR$/app/models.py" />
+        <option value="$PROJECT_DIR$/myprofile/views.py" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/components/login.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/components/index.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/components/follow.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/components/header.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/components/hom_nf.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/components/home.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/components/post.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/home/components/user.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/profile/components/myprofile.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/profile/components/userprofile.js" />
+        <option value="$PROJECT_DIR$/Fontend/webpack.config.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/css/signUp.css" />
+        <option value="$PROJECT_DIR$/app/views.py" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/components/verifyaccount.html" />
+        <option value="$PROJECT_DIR$/Fontend/src/app.js" />
+        <option value="$PROJECT_DIR$/account/models.py" />
+        <option value="$PROJECT_DIR$/account/urls.py" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/css/verifyaccount.css" />
+        <option value="$PROJECT_DIR$/account/views.py" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/components/signUp.js" />
+        <option value="$PROJECT_DIR$/Fontend/src/apps/account/components/verifyaccount.js" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/Backend/settings.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="3" />
+    <option name="y" value="47" />
+    <option name="width" value="963" />
+    <option name="height" value="669" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="oracle&#10;postgresql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/ReactNative/Mobile" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Fontend/src/apps/test" />
+      <recent name="$PROJECT_DIR$/media" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Fontend/src/apps/icons" />
+      <recent name="$PROJECT_DIR$/media/icons" />
+      <recent name="$PROJECT_DIR$/myprofile" />
+      <recent name="$PROJECT_DIR$/Fontend/src/apps/profile/images" />
+      <recent name="$PROJECT_DIR$/Fontend/src/apps/trending/images" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Backend" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Backend.settings" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Shures\AppData\Local\Programs\Python\Python37-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fb6240f0-d4ae-4921-a5af-2b3f2a3e6eda" name="Default Changelist" comment="" />
+      <created>1547140647918</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547140647918</updated>
+      <workItem from="1547140649168" duration="2875000" />
+      <workItem from="1547145073886" duration="8000" />
+      <workItem from="1547217856634" duration="32000" />
+      <workItem from="1547294150929" duration="2716000" />
+      <workItem from="1547297679039" duration="2684000" />
+      <workItem from="1547314363263" duration="17000" />
+      <workItem from="1547364489721" duration="1008000" />
+      <workItem from="1547366158782" duration="2362000" />
+      <workItem from="1547369371941" duration="10523000" />
+      <workItem from="1547404974941" duration="4022000" />
+      <workItem from="1547409034428" duration="4660000" />
+      <workItem from="1547449214517" duration="598000" />
+      <workItem from="1547481349796" duration="633000" />
+      <workItem from="1547523613105" duration="1096000" />
+      <workItem from="1547538463638" duration="8193000" />
+      <workItem from="1547548012952" duration="4009000" />
+      <workItem from="1547564085270" duration="2081000" />
+      <workItem from="1547628044853" duration="21075000" />
+      <workItem from="1547657674246" duration="6211000" />
+      <workItem from="1547823751815" duration="14089000" />
+      <workItem from="1547906895403" duration="896000" />
+      <workItem from="1549425553670" duration="860000" />
+      <workItem from="1549730072201" duration="1095000" />
+      <workItem from="1551894642554" duration="596000" />
+      <workItem from="1551889439242" duration="1750000" />
+      <workItem from="1551891299035" duration="1753000" />
+      <workItem from="1551893125986" duration="1766000" />
+      <workItem from="1551894972513" duration="1787000" />
+      <workItem from="1551896822148" duration="1766000" />
+      <workItem from="1551898648962" duration="1775000" />
+      <workItem from="1551900469429" duration="918000" />
+      <workItem from="1551947069645" duration="1707000" />
+      <workItem from="1551948841800" duration="1785000" />
+      <workItem from="1551950718416" duration="1755000" />
+      <workItem from="1551952517963" duration="2042000" />
+      <workItem from="1551955525848" duration="1760000" />
+      <workItem from="1551957376445" duration="1756000" />
+      <workItem from="1551959207936" duration="1568000" />
+      <workItem from="1551961042569" duration="1863000" />
+      <workItem from="1551963004195" duration="1741000" />
+      <workItem from="1551964813027" duration="1765000" />
+      <workItem from="1551970762242" duration="984000" />
+      <workItem from="1551972898005" duration="1359000" />
+      <workItem from="1551976000746" duration="1080000" />
+      <workItem from="1551978288365" duration="1760000" />
+      <workItem from="1551980144244" duration="1752000" />
+      <workItem from="1551982010048" duration="1768000" />
+      <workItem from="1551983842919" duration="1780000" />
+      <workItem from="1551985691749" duration="329000" />
+      <workItem from="1552031008779" duration="1402000" />
+      <workItem from="1552053765316" duration="1755000" />
+      <workItem from="1552055584997" duration="1762000" />
+      <workItem from="1552057391665" duration="1774000" />
+      <workItem from="1552059214859" duration="1768000" />
+      <workItem from="1552061023256" duration="1777000" />
+      <workItem from="1552062843515" duration="1773000" />
+      <workItem from="1552064656914" duration="1774000" />
+      <workItem from="1552066538527" duration="1783000" />
+      <workItem from="1552068360610" duration="1341000" />
+      <workItem from="1552108991894" duration="1026000" />
+      <workItem from="1552133763867" duration="1765000" />
+      <workItem from="1552135805249" duration="1787000" />
+      <workItem from="1552137715739" duration="1747000" />
+      <workItem from="1552139554952" duration="1920000" />
+      <workItem from="1552141557160" duration="1761000" />
+      <workItem from="1552143420422" duration="1727000" />
+      <workItem from="1552145243506" duration="1752000" />
+      <workItem from="1552147059032" duration="1801000" />
+      <workItem from="1552149009694" duration="1877000" />
+      <workItem from="1552190697618" duration="620000" />
+      <workItem from="1552194904074" duration="1762000" />
+      <workItem from="1552197481415" duration="1634000" />
+      <workItem from="1552200639273" duration="1339000" />
+      <workItem from="1552220493234" duration="1743000" />
+      <workItem from="1552222308715" duration="1769000" />
+      <workItem from="1552224158877" duration="1784000" />
+      <workItem from="1552225991083" duration="1411000" />
+      <workItem from="1552229265507" duration="1784000" />
+      <workItem from="1552231121102" duration="1775000" />
+      <workItem from="1552232936542" duration="801000" />
+      <workItem from="1552279414529" duration="1755000" />
+      <workItem from="1552281218120" duration="957000" />
+      <workItem from="1552301908721" duration="596000" />
+      <workItem from="1552312783155" duration="1933000" />
+      <workItem from="1552315251813" duration="1744000" />
+      <workItem from="1552317063602" duration="1212000" />
+      <workItem from="1552323965209" duration="464000" />
+      <workItem from="1552359045001" duration="1755000" />
+      <workItem from="1552360881569" duration="1764000" />
+      <workItem from="1552362699183" duration="1805000" />
+      <workItem from="1552364570118" duration="176000" />
+      <workItem from="1552366990760" duration="1769000" />
+      <workItem from="1552368831855" duration="433000" />
+      <workItem from="1552369793824" duration="1760000" />
+      <workItem from="1552371610756" duration="1775000" />
+      <workItem from="1552373435916" duration="506000" />
+      <workItem from="1552378325881" duration="2178000" />
+      <workItem from="1552380583989" duration="1803000" />
+      <workItem from="1552382444791" duration="1771000" />
+      <workItem from="1552384292973" duration="1755000" />
+      <workItem from="1552386121566" duration="1809000" />
+      <workItem from="1552388007239" duration="1766000" />
+      <workItem from="1552389838325" duration="1784000" />
+      <workItem from="1552400832455" duration="1758000" />
+      <workItem from="1552402652465" duration="1719000" />
+      <workItem from="1552404546122" duration="1773000" />
+      <workItem from="1552406438358" duration="1797000" />
+      <workItem from="1552408312983" duration="1994000" />
+      <workItem from="1552410371767" duration="1655000" />
+      <workItem from="1552412250876" duration="1790000" />
+      <workItem from="1552414119399" duration="1793000" />
+      <workItem from="1552415972273" duration="774000" />
+      <workItem from="1552416944962" duration="1774000" />
+      <workItem from="1552418795061" duration="523000" />
+      <workItem from="1552456111568" duration="1759000" />
+      <workItem from="1552457935562" duration="1757000" />
+      <workItem from="1552459777190" duration="1780000" />
+      <workItem from="1552461637304" duration="1846000" />
+      <workItem from="1552463560904" duration="1742000" />
+      <workItem from="1552465373373" duration="1777000" />
+      <workItem from="1552467224221" duration="1769000" />
+      <workItem from="1552469053700" duration="1763000" />
+      <workItem from="1552470903626" duration="2343000" />
+      <workItem from="1552474171664" duration="1928000" />
+      <workItem from="1552476176582" duration="1765000" />
+      <workItem from="1552478024265" duration="1751000" />
+      <workItem from="1552479840979" duration="1896000" />
+      <workItem from="1552481834410" duration="1765000" />
+      <workItem from="1552483666265" duration="1774000" />
+      <workItem from="1552485480413" duration="1777000" />
+      <workItem from="1552487302963" duration="1267000" />
+      <workItem from="1552489152653" duration="1417000" />
+      <workItem from="1552545201377" duration="1756000" />
+      <workItem from="1552547044520" duration="1760000" />
+      <workItem from="1552548870941" duration="1764000" />
+      <workItem from="1552550705840" duration="1759000" />
+      <workItem from="1552552535734" duration="1639000" />
+      <workItem from="1552554732261" duration="1758000" />
+      <workItem from="1552556548499" duration="1769000" />
+      <workItem from="1552558390134" duration="1766000" />
+      <workItem from="1552560215650" duration="1766000" />
+      <workItem from="1552562040060" duration="1769000" />
+      <workItem from="1552563872641" duration="1769000" />
+      <workItem from="1552565699570" duration="1772000" />
+      <workItem from="1552567517755" duration="401000" />
+      <workItem from="1552568463633" duration="1732000" />
+      <workItem from="1552570273182" duration="1765000" />
+      <workItem from="1552572099660" duration="1779000" />
+      <workItem from="1552573982538" duration="1980000" />
+      <workItem from="1552576024897" duration="1764000" />
+      <workItem from="1552577859657" duration="1767000" />
+      <workItem from="1552579685686" duration="1371000" />
+      <workItem from="1552581565987" duration="1729000" />
+      <workItem from="1552583357762" duration="1768000" />
+      <workItem from="1552585170540" duration="1313000" />
+      <workItem from="1552631380415" duration="1745000" />
+      <workItem from="1552633192724" duration="1846000" />
+      <workItem from="1552635095862" duration="1877000" />
+      <workItem from="1552637034864" duration="1798000" />
+      <workItem from="1552638884487" duration="1787000" />
+      <workItem from="1552640844089" duration="1765000" />
+      <workItem from="1552642666598" duration="1770000" />
+      <workItem from="1552644510388" duration="521000" />
+      <workItem from="1552656883586" duration="1761000" />
+      <workItem from="1552658706799" duration="1768000" />
+      <workItem from="1552660542996" duration="1763000" />
+      <workItem from="1552662386577" duration="1772000" />
+      <workItem from="1552664217349" duration="1770000" />
+      <workItem from="1552666054931" duration="1763000" />
+      <workItem from="1552667884648" duration="1775000" />
+      <workItem from="1552669720335" duration="1784000" />
+      <workItem from="1552671571100" duration="1879000" />
+      <workItem from="1552673505078" duration="158000" />
+      <workItem from="1552818157823" duration="489000" />
+      <workItem from="1552834623082" duration="1378000" />
+      <workItem from="1552836515133" duration="1774000" />
+      <workItem from="1552838443254" duration="2090000" />
+      <workItem from="1552840602483" duration="1766000" />
+      <workItem from="1552842436187" duration="860000" />
+      <workItem from="1552891287627" duration="600000" />
+      <workItem from="1552893573875" duration="210000" />
+      <workItem from="1552901052300" duration="570000" />
+      <workItem from="1552902408151" duration="1703000" />
+      <workItem from="1552904194817" duration="1760000" />
+      <workItem from="1552906011984" duration="1695000" />
+      <workItem from="1552923307281" duration="1001000" />
+      <workItem from="1552925109899" duration="1751000" />
+      <workItem from="1552926928881" duration="1766000" />
+      <workItem from="1552928758444" duration="1772000" />
+      <workItem from="1552930591779" duration="1764000" />
+      <workItem from="1552932428706" duration="896000" />
+      <workItem from="1552972770764" duration="1735000" />
+      <workItem from="1552974575220" duration="2108000" />
+      <workItem from="1552976754453" duration="1755000" />
+      <workItem from="1552978581569" duration="1753000" />
+      <workItem from="1552980413241" duration="1754000" />
+      <workItem from="1552982223049" duration="1771000" />
+      <workItem from="1552984067310" duration="1463000" />
+      <workItem from="1552990463282" duration="1791000" />
+      <workItem from="1552992343599" duration="617000" />
+      <workItem from="1553006886870" duration="1607000" />
+      <workItem from="1553008556066" duration="1438000" />
+      <workItem from="1553010382242" duration="1546000" />
+      <workItem from="1553076976704" duration="1754000" />
+      <workItem from="1553078797710" duration="832000" />
+      <workItem from="1553091449564" duration="1749000" />
+      <workItem from="1553093283986" duration="1743000" />
+      <workItem from="1553095138625" duration="1766000" />
+      <workItem from="1553096973841" duration="1770000" />
+      <workItem from="1553098800190" duration="1221000" />
+      <workItem from="1553284087154" duration="686000" />
+      <workItem from="1554847570352" duration="743000" />
+      <workItem from="1555582408479" duration="13823000" />
+      <workItem from="1555659367248" duration="620000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="403006000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25642964" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32864675" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4844517" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.33060557" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" visible="true" weight="0.32569557" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="TypeScript" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32954547" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.3290469" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/account/views.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/css/user.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/css/imageUploadPost.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="55" column="1" selection-start-line="49" selection-end-line="55" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/css/videoUploadPost.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myprofile/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/css/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/css/post.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="120" column="24" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/migrations/0002_auto_20190309_1244.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0003_auto_20190315_1345.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0004_auto_20190315_1403.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0005_auto_20190315_1437.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0006_auto_20190315_1438.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0007_auto_20190315_1526.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0009_auto_20190315_1649.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0008_auto_20190315_1541.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/0001_initial.py" />
+    <entry file="file://$PROJECT_DIR$/app/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myprofile/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/sugg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-627">
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/tranding.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/trending/component/trending.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/account/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/follow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1196">
+          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1346">
+          <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3090">
+          <caret line="216" column="41" selection-start-line="216" selection-start-column="41" selection-end-line="216" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/profile/components/userprofile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3615">
+          <caret line="244" column="9" selection-start-line="244" selection-start-column="9" selection-end-line="244" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/profile/components/myprofile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="152" column="39" selection-start-line="152" selection-start-column="39" selection-end-line="152" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/post.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="99" column="65" selection-start-line="99" selection-start-column="65" selection-end-line="99" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/home/components/hom_nf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="102" column="20" selection-start-line="98" selection-start-column="4" selection-end-line="102" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/account/css/signUp.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="90" lean-forward="true" selection-end-line="6" selection-end-column="90" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/account/images/Reload-3.5s-30px.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/account/css/verifyaccount.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/account/components/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/npm-debug.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/account/components/verifyaccount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="64" column="28" lean-forward="true" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myprofile/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/src/apps/account/components/signUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="146" column="26" selection-start-line="146" selection-start-column="26" selection-end-line="146" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="150" column="21" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fontend/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="21" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

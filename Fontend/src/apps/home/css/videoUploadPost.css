@@ -1,0 +1,76 @@
+.shadow #videoUploadPost{
+    position: absolute;
+    top: 10px;
+    left: 35%;
+    right: 35%;
+    background-color: white;
+    border-radius: 1px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.4);
+    padding-top: 0;
+    overflow-y: auto;
+    bottom: 10px;
+    width: 30%;
+}
+.shadow #videoUploadPost>video{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: 400px;
+    overflow: hidden;
+}
+.shadow #videoUploadPost>#progressBar{
+    height: 5px;
+    width: 0;
+    background-color: #3897f0;
+    clear: both;
+}
+.shadow #videoUploadPost #block{
+    width: 90%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.shadow #videoUploadPost>#block>#gen{
+    color: #3897f0;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+.shadow #videoUploadPost>#block>canvas{
+    margin-top: 10px;
+    border-radius: 2px;
+    width: auto;
+    height: 150px;
+    display: none;
+    padding: 1px;
+    border: 2px solid #3897f0;
+}
+.shadow #videoUploadPost #block #caption{
+    margin-top: 10px;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+.shadow #videoUploadPost #block>#caption>input{
+    border: none;
+}
+.shadow #videoUploadPost>#block>#uploadAction{
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+.shadow #videoUploadPost>#block>#uploadAction>button{
+    color: #3897f0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+.shadow #videoUploadPost>#block>#uploadAction>span:last-child{
+    color: red;
+    margin-left: 15px;
+}

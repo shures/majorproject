@@ -1,0 +1,128 @@
+#postUp{
+    top: 8%;
+    left: 20%;
+    right: 20%;
+    background-color: white;
+    z-index: 8;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+#postUp #img{
+    width: 65%;
+}
+#postUp #img>img{
+    width: 100%;
+}
+#postUp #foo{
+    width: 30%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    position: relative;
+    flex: 1;
+}
+#postUp #foo>#head{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 14px;
+}
+#postUp #foo>#head>img{
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+}
+#postUp #foo>#head>span{
+    margin-left: 8px;
+}
+#postUp #foo>#head>b{
+    margin-left: 8px;
+}
+#postUp #comment{
+    width: 100%;
+    margin:5px 0 0 0;
+    overflow: hidden;
+    clear: both;
+    font-size: 14px;
+}
+#postUp #comment>#list{
+    width: 100%;
+    padding-bottom: 8px;
+}
+#postUp #comment>#list>.item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+#postUp #comment>#list>.item>#pack{
+
+}
+#postUp #comment>#list>.item>#pack>span:first-child{
+    font-weight: 600;
+    color:rgba(0,0,0,0.8);
+}
+#postUp #comment>#list>.item>#pack>span:nth-child(2){
+    color: rgba(0,0,0,0.7);
+    margin-left: 5px;
+}
+#postUp #comment_like{
+
+}
+#postUp #comment_like>img{
+    float: right;
+    height:15px;
+    width: 15px;
+}
+#postUp #foo>#down{
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    height: 150px;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+#postUp #foo>#down>#action{
+    height: 90px;
+    font-size: 14px;
+    width: 100%;
+}
+#postUp #foo>#down>#action>#foo{
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+#postUp #foo>#down>#action>#foo>img{
+    height: 25px;
+    width: 25px;
+    margin-right: 20px;
+}
+#postUp #foo>#down>#action>#status{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color:rgba(0,0,0,0.8)
+}
+#postUp #foo>#down>#action>#status>span{
+    margin-right: 15px;
+}
+#postUp #foo>#down>#add_comment{
+    width: 100%;
+    height: 60px;
+}
+#postUp #foo>#down>#add_comment>input{
+    width: 100%;
+    border: none;
+    height: 59px;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}

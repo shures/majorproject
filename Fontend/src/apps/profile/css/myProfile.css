@@ -1,0 +1,283 @@
+#myProfile{
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 95px;
+}
+#myProfile #about{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+}
+#myProfile #about>#image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#myProfile #about>#image>#img{
+
+}
+#myProfile #about>#image>#foo{
+    margin-top: 10px;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 14px;
+    color: #3897f0;
+    cursor: pointer;
+}
+#myProfile #about>#image>#foo>span{
+    margin-top: 5px;
+}
+#myProfile #about>#image>#img{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    overflow: hidden;
+}
+#myProfile #about>#image>#img>img{
+    width: 100%;
+}
+#myProfile #about>#detail{
+    margin-left: 30px;
+}
+#myProfile #detail>#pack{
+    display: flex;
+    flex-direction: column;
+}
+#myProfile #detail>#pack>#name{
+    font-size: 14px;
+    margin-top: 5px;
+}
+#myProfile #detail>#pack>#username{
+    font-size: 16px;
+    font-weight: bold;
+}
+#myProfile #detail>#pack>#addr{
+    font-size: 14px;
+    color:rgba(0,0,0,0.5);
+}
+#myProfile #detail>#activity{
+    width: 100%;
+    margin-top:8px;
+    display: flex;
+    flex-direction: row;
+}
+#myProfile #detail>#activity>#post{
+
+}
+#myProfile #detail>#activity>#followers{
+
+}
+#myProfile #detail>#activity>#following{
+
+}
+#myProfile #detail>#activity>div{
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    color: rgba(0,0,0,0.7);
+    margin-right: 12px;
+}
+#myProfile #detail>#activity>div>span:first-child{
+    font-size: 15px;
+    font-weight: bold;
+}
+#myProfile #detail>#activity>div>span:last-child{
+    margin-top: 5px;
+    font-size: 16px;
+    color: crimson;
+}
+
+
+#myProfile>#about>#detail>#more{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+#myProfile>#about>#detail>#more>span{
+    color: rgba(0,0,0,0.8);
+    margin-top: 10px;
+}
+#myProfile>#about>#detail>#blue{
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: darkblue;
+    opacity: 0.9;
+    padding-top: 10px;
+}
+#myProfile #menu{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#myProfile #menu>div{
+    padding: 0 5px 10px 5px;
+    margin: 2px;
+    color: rgba(0,0,0,0.6);
+    text-align: center;
+}
+#myProfile #menu>div>span{
+    font-size: 14px;
+}
+#myProfile #collection{
+    margin-top: 30px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#collection>.column{
+    display:flex;
+    flex-direction:column;
+    width: 32.8%;
+}
+#collection>.column>.item{
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 2px;
+}
+#collection>.column>.item>img{
+    width: 100%;
+}
+
+.shadow{
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 6;
+    position: fixed;
+}
+#uploadPP{
+    top: 20%;
+    left: 40%;
+    right: 40%;
+    background-color: white;
+    z-index: 7;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#uploadPP>#head{
+    padding-top: 15px;
+    padding-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#uploadPP>#head>#image{
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    overflow: hidden;
+    background-color: red;
+}
+#uploadPP>#head>#image>img{
+    width: 100%;
+}
+#uploadPP>span{
+    color: rgba(0,0,0,0.6);
+    font-size: 18px;
+}
+#uploadPP>img{
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+#uploadPP>.item{
+    margin-top: 20px;
+    width: 70%;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    color: #3897f0;
+    cursor: pointer;
+}
+#uploadPP>.item:last-child{
+    border-bottom: none;
+
+}
+#uploadPP>#progressBarPP{
+    position: absolute;
+    width: 0;
+    height: 5px;
+    bottom: 0;
+    background-color: #3897f0;
+    align-self: flex-start;
+}
+#editProfile{
+    position: absolute;
+    bottom: 15px;
+    left: 35%;
+    right: 35%;
+    top: 30px;
+    background-color: white;
+    overflow-y: auto;
+    border-radius: 2px;
+}
+#editProfile>#head{
+    padding-top: 10px;
+    width: 60%;
+    margin-left: 20%;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#editProfile>#head>#image{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    overflow: hidden;
+}
+#editProfile>#head>#image>img{
+    width: 100%
+}
+#editProfile>#head>span{
+   margin-top: 15px;
+}
+#editProfile>#block{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+#editProfile>#block>input{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-top: 30px;
+    width: 100%;
+    padding-bottom:10px;
+}
+#editProfile>#actions{
+    margin-top: 30px;
+    margin-left: 10%;
+    font-size: 14px;
+    cursor: pointer;
+}
+#editProfile>#actions>span{
+    color: #3897f0;
+    margin-right:15px ;
+}
+#editProfile>#actions>span:nth-child(2){
+    color: crimson;
+}
+
+
+

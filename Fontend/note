@@ -1,0 +1,40 @@
+babel: babel is a javascript compiler that converts ECMAScript 2015/ES6 into ECMAScript ES5/5
+       for example
+
+        ECMAScript 5 is also known as ES5 and ECMAScript 2009
+        String.trim()
+        Array.isArray()
+        Array.forEach()
+        Array.map()
+        Array.filter()
+        Array.reduce()
+        Array.reduceRight()
+        Array.every()
+        Array.some()
+        Array.indexOf()
+        Array.lastIndexOf()
+        JSON.parse()
+        JSON.stringify()
+        Date.now()
+        Property Getters and Setters
+        New Object Property Methods
+
+
+
+
+       ECMAScript 6 is also known as ES6 and ECMAScript 2015.
+       Some people like to call it JavaScript 6.
+       Introduce some of the new features in ES6.
+       JavaScript let
+       JavaScript const
+       Exponentiation (**)
+       Default parameter values
+       Array.find()
+       Array.findIndex()
+
+webapp
+    https://medium.freecodecamp.org/learn-webpack-for-react-a36d4cac5060
+
+
+difference between export and default default
+    https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910
