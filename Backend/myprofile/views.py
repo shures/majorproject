@@ -44,7 +44,6 @@ def edit_profile(request):
     quote3 = request.data.get("quote3")
     site = request.data.get("site")
 
-
     UserDetail.objects.filter(user_id=user_id).update(addr=addr, quote1=quote1, quote2=quote2, quote3=quote3, site=site)
     return Response(status=HTTP_200_OK)
 

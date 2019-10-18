@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
@@ -37,8 +37,6 @@ def verifyAccount(request):
     else:
         return Response({"fail": "can not update"})
 
-
-
 @csrf_exempt
 @api_view(["POST"])
 @permission_classes((AllowAny,))
@@ -52,7 +50,7 @@ def login(request):
         return Response(status=HTTP_203_NON_AUTHORITATIVE_INFORMATION)
     token, _ = Token.objects.get_or_create(user=user)
     request.session['user_id'] = user.id
-    return Response({'token': token.key, 'username': user.username, 'fn': user.first_name+""+user.last_name, 'id': user.id}, status=HTTP_200_OK)
+    return Response({'token': token.key, 'username': user.username, 'fn': user.first_name, 'id': user.id}, status=HTTP_200_OK)
 
 
 @csrf_exempt
@@ -80,21 +78,22 @@ def sign_up(request):
                     error.append(message)
                 else:
                     verification_code = message
-
-
     if len(error) < 1:
-        user = User.objects.create_user(email=email, first_name=full_name, last_name=verification_code, username=username, password=password)
+        print("success here.....")
+        user = User.objects.create_user(email=email, first_name=full_name, last_name=verification_code,
+                                        username=username, password=password)
         token, _ = Token.objects.get_or_create(user=user)
         return Response({"email": email}, status=HTTP_200_OK)
     else:
         return Response({"error": error}, status=HTTP_200_OK)
 
-
 def validateEmail(email):
+    print("i am email")
     if len(email) == 10 and email.isdigit():
+        print("phone")
         return validatePhone(email)
     else:
-        client = Client('at_A14IX5eH3WIqgplCrXAeXtSgDvzpj')
+        client = Client('at_mMeTEJCIsEHnsAhHHp93G5JCG2aLR')
         data = ''
         try:
             data = client.get(email)
@@ -124,7 +123,6 @@ def validateEmail(email):
             # print("Last audit date: " + str(data.audit.audit_updated_date))
 
             User.objects.filter(email=email).exclude(last_name="0000").delete()
-
             row = User.objects.filter(email=email, last_name="0000")
             if not row.exists():
                 verification_code = str(random.randint(1, 9999))
@@ -132,7 +130,7 @@ def validateEmail(email):
                     'Verification',
                     'Please verify your account with this code' + verification_code,
                     'shures.nepali@gmail.com',
-                    ['programmershures@gmail.com'],
+                    [email],
                     fail_silently=False,
                 )
                 return verification_code
@@ -141,18 +139,13 @@ def validateEmail(email):
         else:
             return "*email is not valid"
 
-
-
-
 def validatePassword(password):
     if 8 <= len(password) <= 50:
         return True
 
-
 def validateFullName(full_name):
     if 5 <= len(full_name) <= 20:
         return True
-
 
 def validateUsername(username):
     if 5 <= len(username) <= 20:
@@ -166,10 +159,8 @@ def validateUsername(username):
             if not row.exists():
                 return True
 
-
-
-
 def validatePhone(email):
+    print("i am on phone")
     User.objects.filter(email=email).exclude(last_name="0000").delete()
     row = User.objects.filter(email=email, last_name="0000")
     if not row.exists():
@@ -188,3 +179,15 @@ def validatePhone(email):
     else:
         return "*Phone number already in use !!"
         # https: // www.nexmo.com / blog / 2017 / 06 / 22 / send - sms - messages - python - flask - dr /
+
+@csrf_exempt
+@api_view(["POST"])
+def switch_to_business(request):
+    user_id = request.data.get("userId")
+    category = request.data.get("category")
+    name = request.data.get("name")
+    username = request.data.get("username")
+    print(user_id+category+name+username)
+    user = User.objects.filter(id=user_id).update(first_name=name, username=username)
+    UserDetail.objects.filter(user_id=user_id).update(isBusiness=1, category=category)
+    return Response(status=HTTP_200_OK)

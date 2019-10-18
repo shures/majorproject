@@ -87,7 +87,7 @@ export class UserProfile extends React.Component {
 
     isProfilePic() {
         if (this.state.profilePic === "") {
-            return <img src={require('./../../icons/user.png')}/>
+            return <img src={require('./../images/add-user.png')}/>
         } else {
             return <img src={"http://127.0.0.1:8000/media/" + this.state.profilePic}/>
         }
@@ -111,7 +111,6 @@ export class UserProfile extends React.Component {
                                 <div id="detail">
                                     <div id="foo">
                                         <span>{this.state.username}</span>
-
                                         <div onClick={this.follow}>{this.state.followed ? <span style={{color:'darkgreen'}}>Following</span> : <span>Follow</span>}</div>
                                     </div>
                                     <div id="activity">

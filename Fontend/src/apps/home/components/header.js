@@ -1,8 +1,9 @@
 import React from 'react'
+import axios from "axios";
+import {Link} from 'react-router-dom'
 import '../css/header.css'
 import '../css/seachbox.css'
 import {SearchBox} from "./search";
-import axios from "axios";
 import './../../common/css/shadow.css'
 export class Header extends React.Component {
     constructor() {
@@ -12,6 +13,7 @@ export class Header extends React.Component {
             search:{search_key:'', data:null},
             fileUpload:{
                 selectedFile: null,
+                selectedMenu :"home"
             }
         };
         this.fileInput = React.createRef();
@@ -37,7 +39,7 @@ export class Header extends React.Component {
         this.setState({search: search}, () => {
             axios({
                 method: 'post',
-                url: "http://127.0.0.1:8000/home/search_key",
+                url: "http://127.0.0.1:8000/app/search_key",
                 data: {search_key:this.state.search.search_key},
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })
@@ -58,7 +60,8 @@ export class Header extends React.Component {
             <header>
                 <div id="n_home">
                     <div id="post">
-                        <img src={require("../images/plus.png")} onClick={this.fileInputClick}/>
+                        {/*<Link to="/"><img id="home" src={require("../icons/home.png")}/></Link>*/}
+                        <img src={require("../icons/homesel.png")} onClick={this.fileInputClick}/>
                         <input type="file"  ref={this.fileInput} onChange={this.handleChange}/>
                     </div>
                     <div id="message">
@@ -114,8 +117,8 @@ export class Header extends React.Component {
 
                         </div>
                     </div>
-                    <div id="Ads">
-                        <img src={require('./../images/004-share.png')}/>
+                    <div id="ads">
+                        <Link to="/follow"><img id="home" src={require("../icons/follower.png")}/></Link>
                         <div style={{display:"none"}}>
 
                         </div>
@@ -134,6 +137,9 @@ export class Header extends React.Component {
                 <div id="title">
                     <img src={require("../images/app_icon.png")} />
                     <span>Tasbiralaya</span>
+                </div>
+                <div id="account_name">
+                    <span>Business Account</span>
                 </div>
             </header>
         )

@@ -34,9 +34,10 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1:3000'
-)
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:3000'
+]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

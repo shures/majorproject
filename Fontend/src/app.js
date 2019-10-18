@@ -13,6 +13,7 @@ import {Video} from "./apps/test/video";
 import {Canvas} from "./apps/test/thumb";
 import {UserProfile} from "./apps/profile/components/userprofile";
 import {VerifyAccount} from "./apps/account/components/verifyaccount";
+import {Setting} from "./apps/profile/components/setting";
 
 class App extends Component{
     render(){
@@ -30,6 +31,7 @@ class App extends Component{
                 <Route exact path="/video" component={Video}/>
                 <Route exact path="/canvas" component={Canvas}/>
                 <Route exact path="/userprofile" component={UserProfile}/>
+                <Route exact path="/setting" component={Setting}/>
                 <Route exact path="/:username" component={UserProfile}/>
             </Switch>
         );

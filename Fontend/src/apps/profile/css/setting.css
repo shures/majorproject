@@ -1,0 +1,53 @@
+#setting>#container{
+    margin-top: 100px;
+    margin-left: 14%;
+    width: 86%;
+}
+#setting>#container>#menu{
+    width: 37%;
+    float: left;
+    padding-left: 2%;
+    border-left:1px solid rgba(0,0,0,0.2);
+}
+#setting>#container>#placeholder{
+    float: left;
+    width: 60%;
+    padding: 0;
+}
+#setting>#container>#menu>.item{
+    margin-top: 15px;
+    cursor: pointer;
+}
+#setting>#container>#menu>.item:hover{
+   color:rgba(0,0,0,0.7)
+}
+#setting>#container>#placeholder>#block1{
+    margin-top: 10px;
+}
+#setting>#container>#placeholder>span{
+    font-size: 13px;
+    opacity: 0.8;
+}
+#setting>#container>#placeholder>#block1>input{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    margin-top: 15px;
+    width: 35%;
+    padding-bottom:4px;
+    background-color: transparent;
+    color: blue;
+}
+#setting>#container>#placeholder>#block1>select{
+    margin-top: 15px;
+    width: 35%;
+}
+#setting>#container>#placeholder>#action1>input{
+    border: none;
+    margin-top: 30px;
+    background-color: #F50057;
+    height: 35px;
+    width: 120px;
+    border-radius: 3px;
+    color: wheat;
+
+}

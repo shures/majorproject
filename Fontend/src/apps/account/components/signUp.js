@@ -28,11 +28,11 @@ class SignUpBox extends React.Component {
     constructor() {
         super();
         this.state = {
-            fullName: "",
-            email: '',
-            username: '',
-            password1: '',
-            password2:'',
+            fullName: "Shures Nepali",
+            email: 'shures.nepali@gmail.com',
+            username: 'shures',
+            password1: 'shures666',
+            password2:'shures666',
             error:[],
             redirect:false,
             serverReply:'',
@@ -86,7 +86,7 @@ class SignUpBox extends React.Component {
         this.setState({error:[]},()=>{
             this.checkValidation();
             if(this.state.error.length<1){
-                this.setState({"status":"Wait ..."});
+                this.setState({"status":"Signing Up ..."});
             axios({
                 method: 'post',
                 url: 'http://127.0.0.1:8000/account/signUp',

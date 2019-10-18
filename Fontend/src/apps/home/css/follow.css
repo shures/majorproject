@@ -81,3 +81,10 @@
      padding: 3px 6px 3px 6px;
      border-radius: 2px;
 }
+#follow_message{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color:#343148;
+    margin-top: 80px;
+}

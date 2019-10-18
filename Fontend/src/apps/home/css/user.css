@@ -23,8 +23,10 @@
     margin-top: 5px;
     cursor: pointer;
 }
-#user>#foo>span{
-
+#user>#foo>span>*{
+    text-decoration: none;
+    color:black;
+    font-size: 16px;
 }
 #user>#foo>span:nth-child(1){
     font-weight: bold;

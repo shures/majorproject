@@ -36,8 +36,9 @@
 #myProfile #about>#image>#img{
     height: 150px;
     width: 150px;
-    border-radius: 150px;
+    border-radius: 145px;
     overflow: hidden;
+    border: 5px dashed black;
 }
 #myProfile #about>#image>#img>img{
     width: 100%;

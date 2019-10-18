@@ -31,7 +31,7 @@ export class MyProfile extends React.Component {
 
     isProfilePic() {
         if (this.state.profilePic === "") {
-            return <img src={require('./../../icons/user.png')}/>
+            return <img src={require('./../images/add-user.png')}/>
         } else {
             return <img src={"http://127.0.0.1:8000/media/" + this.state.profilePic}/>
         }
