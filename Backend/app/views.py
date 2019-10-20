@@ -352,3 +352,59 @@ def trending(request):
                      "username": item.post.user.username,
                      "fn": item.post.user.first_name})
     return Response({"posts": data}, status=HTTP_200_OK)
+
+@api_view(['POST'])
+def getPostItem(request):
+    user_id = request.data.get("userId")
+    post_id = request.data.get("postId")
+    item = Post.objects.get(id=post_id)
+    is_liked = False
+    like = PostLike.objects.filter(post_id=item.id, user_id=user_id)
+    if like.exists():
+        is_liked = True
+    comment_set = []
+    comments = item.postcomment_set.all()
+    for comment in comments:
+        comment_set.append({"comment": comment.comment, "username": comment.user.username})
+    return Response({"id": item.id,
+                     "caption": item.caption,
+                     "content": item.content,
+                     "date": item.date,
+                     "likeCount": item.likes,
+                     "commentCount": item.comments,
+                     "username": item.user.username,
+                     "fn": item.user.first_name,
+                     "isLiked": is_liked,
+                     "comments": comment_set,
+                     "viewCount": item.viewCount}, status=HTTP_200_OK)
+
+    # ===================Trending Algorithm =============================
+    # post_uploaded_timestamp = float(item.date)
+    # now_timestamp = float(datetime.datetime.now().timestamp())
+    # one_day_timestamp = 86400
+    # time_elapsed = now_timestamp - post_uploaded_timestamp
+    # if item.isBusiness and time_elapsed <= one_day_timestamp:
+    #     row = ViewCount.objects.filter(user_id=user_id, post_id=item.id)
+    #     if not row.exists():
+    #         view_count = ViewCount(user_id=user_id, post_id=item.id)
+    #         view_count.save()
+    #         Post.objects.filter(id=item.id).update(viewCount=F('viewCount') + 1)
+    #         like_count = item.likes
+    #         comment_count = item.comments
+    #         view_count = item.viewCount + 1
+    #         point = (view_count + (like_count * 1.25) + (comment_count * 1.50)) / time_elapsed
+    #
+    #         trending_count = Trending.objects.all().count()
+    #         # if trending_count > 50:
+    #         #     Trending.objects.all().aggregate(Max('point')).delete()
+    #
+    #         row = Trending.objects.filter(post_id=item.id)
+    #         if row.exists():
+    #             row.update(point=point)
+    #         else:
+    #             trending = Trending(point=point, post_id=item.id)
+    #             trending.save()
+    #
+    #         if datetime.datetime.now().timestamp() > float(item.date)+86400:
+    #             Trending.objects.filter(post_id=item.id).delete()
+

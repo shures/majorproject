@@ -11,7 +11,7 @@
 #postUp #img{
     width: 65%;
 }
-#postUp #img>img{
+#postUp #img img{
     width: 100%;
 }
 #postUp #foo{

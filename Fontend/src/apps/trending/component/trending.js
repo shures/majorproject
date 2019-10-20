@@ -1,14 +1,21 @@
 import React from 'react';
 import './../css/trending.css';
 import {Header} from "../../home/components/header";
+import {PostOpen} from "../../common/components/post";
 import axios from "axios";
 
 export class Trending extends React.Component {
     constructor() {
         super();
         this.state = {
-            posts:[]
-        }
+            posts:[],
+            openPost:false,
+            openPostId:0
+        };
+        this.openPost = this.openPost.bind(this);
+    }
+    openPost(id){
+        this.setState({openPost:true,openPostId:id});
     }
     componentWillMount() {
         axios({
@@ -18,118 +25,80 @@ export class Trending extends React.Component {
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
             if(res.status===200){
-
+                this.setState({posts:res.data.posts})
             }
         })
     }
 
     render() {
         return (
-            <div>
+            <div id="background">
                 <Header/>
                 <div id="trending">
                     <div id="title"><img src={require("./../images/trending.png")}/> <span>Trending</span></div>
                     <div id="container">
-                        <div className="item">
-                            <div id="hover">
-                                <div id="username">
-                                    <b>shures_nepali</b>
-                                </div>
-                                <div id="caption">
-                                    Beautiful girl in sari for the first time ...
-                                </div>
-                                <div id="status">
-                                    <div className="pack">
-                                        <img src={require("./../images/001-heart.png")}/><span>125</span>
-                                    </div>
-                                    <div className="pack">
-                                        <img src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src={require("./../images/girl.jpg")}/>
-                        </div>
-                        <div className="item">
-                            <div id="hover">
-                                <img src={require("./../images/004-triangle.png")}/>
-                                <div id="username">
-                                        <b>shures_nepali</b>
-                                    </div>
-                                    <div id="caption">
-                                        Beautiful girl in sari
-                                    </div>
-                                    <div id="status">
-                                        <div className="pack">
-                                            <img src={require("./../images/001-heart.png")}/><span>125</span>
-                                        </div>
-                                        <div className="pack">
-                                            <img src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                        </div>
-                                    </div>
-                            </div>
-                            <img src={require("./../images/coding.jpg")}/>
-                        </div>
-                        <div className="item">
-                            <div id="hover">
-                                <div id="username">
-                                    <b>shures_nepali</b>
-                                </div>
-                                <div id="caption">
-                                    Beautiful girl in sari for the first time ...
-                                </div>
-                                <div id="status">
-                                    <div className="pack">
-                                        <img src={require("./../images/001-heart.png")}/><span>125</span>
-                                    </div>
-                                    <div className="pack">
-                                        <img src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src={require("./../images/girl.jpg")}/>
-                        </div>
-                        <div className="item">
-                            <div id="hover">
-                                <div id="username">
-                                    <b>shures_nepali</b>
-                                </div>
-                                <div id="caption">
-                                    Beautiful girl in sari for the first time ...
-                                </div>
-                                <div id="status">
-                                    <div className="pack">
-                                        <img src={require("./../images/001-heart.png")}/><span>125</span>
-                                    </div>
-                                    <div className="pack">
-                                        <img src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src={require("./../images/girl.jpg")}/>
-                        </div>
-                        <div className="item">
-                            <div id="hover">
-                                <img src={require("./../images/004-triangle.png")}/>
-                                <div id="username">
-                                        <b>shures_nepali</b>
-                                    </div>
-                                    <div id="caption">
-                                        Beautiful girl in sari
-                                    </div>
-                                    <div id="status">
-                                        <div className="pack">
-                                            <img src={require("./../images/001-heart.png")}/><span>125</span>
-                                        </div>
-                                        <div className="pack">
-                                            <img src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                        </div>
-                                    </div>
-                            </div>
-                            <img src={require("./../images/coding.jpg")}/>
-                        </div>
+                        {this.state.posts.map((item,index)=>{
+                            return <Item item={item} openPost={this.openPost} key={index}/>
+                        })}
                     </div>
                 </div>
+                {this.state.openPost ? <PostOpen id={this.state.openPostId}/> : null}
             </div>
         )
     }
+}
+
+class Item extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            isImage: false
+        };
+
+    }
+    componentWillMount() {
+         let dotPosition = this.props.item.content.lastIndexOf('.');
+        let extension = this.props.item.content.substr(dotPosition + 1);
+        if (extension === "mp4") {
+            this.setState({isImage: false});
+        } else if (extension === "jpg" || extension === "png") {
+            this.setState({isImage: true});
+        }
+    }
+
+    render() {
+        return(
+            <div className="item" onClick={()=>this.props.openPost(this.props.item.id)}>
+                    <div id="hover">
+                        <div id="username">
+                            <b>{this.props.item.username}</b>
+                        </div>
+                        <div id="caption" >
+                            {this.props.item.caption}
+                        </div>
+                        <div id="status">
+                            <div className="pack">
+                                <img src={require("./../images/001-heart.png")}/><span>{this.props.item.likeCount}</span>
+                            </div>
+                            <div className="pack">
+                                <img src={require("./../images/003-comment-in-circular-button.png")}/><span>{this.props.item.commentCount}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content">
+                    {this.state.isImage ? <div id="imagePost" >
+                            <img src={"http://127.0.0.1:8000/media/" + this.props.item.content}/>
+                        </div> :
+                        <div id="videoPost">
+                            <video onClick={this.playPauseVideo} loop
+                                   poster={"http://127.0.0.1:8000/media/thumbnails/" + this.props.item.content.replace("mp4", "png")}
+                                   preload="none">
+                                <source src={"http://127.0.0.1:8000/media/" + this.props.item.content}/>
+                            </video>
+                        </div>}
+                    </div>
+            </div>
+        )
+    }
+
 }

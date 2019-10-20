@@ -8,6 +8,7 @@ urlpatterns = [
     path("get_follower", views.get_follower),
     path("get_following", views.get_following),
     path("getPost", views.getPost),
+    path("getPostItem", views.getPostItem),
     path('handleLike', views.handleLike),
     path('handleComment', views.handleComment),
     path("fileupload", views.file_upload),
