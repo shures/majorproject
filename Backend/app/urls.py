@@ -14,4 +14,5 @@ urlpatterns = [
     path("postUpload", views.postUpload),
     path("search_key", views.search_key),
     path("getUserDetails", views.get_user_data),
+    path("trending", views.trending)
 ]

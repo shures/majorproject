@@ -336,3 +336,19 @@ def search_key(request):
 def get_user_data(request):
     user = UserDetail.objects.get(id=request.user.id)
     return Response({"file_name": user.file_name}, status=HTTP_200_OK)
+
+@csrf_exempt
+@api_view(["POST"])
+def trending(request):
+    p = Trending.objects.all()
+    data = []
+    for item in p:
+        data.append({"id": item.post.id,
+                     "caption": item.post.caption,
+                     "content": item.post.content,
+                     "date": item.post.date,
+                     "likeCount": item.post.likes,
+                     "commentCount": item.post.comments,
+                     "username": item.post.user.username,
+                     "fn": item.post.user.first_name})
+    return Response({"posts": data}, status=HTTP_200_OK)

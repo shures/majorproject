@@ -2,27 +2,47 @@
     position:absolute;
     top:85px;
     left: 14%;
-    width: 615px;
+    width: 70%;
     display: flex;
     flex-direction: column;
 }
-#trending .row{
+#trending>#title{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: capitalize;
+    margin-top: 10px;
+    border: 1px solid rgba(0,0,0,1);
+    width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#trending>#title>img{
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+
+}
+#trending #container{
     display: flex;
     margin-top: 10px;
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
-#trending .row>.item{
+#trending #container>.item{
     position: relative;
     height: 200px;
     width: 200px;
     overflow: hidden;
+    margin-right: 10px;
+    margin-bottom:10px;
 }
-#trending .row>.item:hover #hover{
+#trending #container>.item:hover #hover{
     display: block;
 }
-#trending .row>.item>#hover{
+#trending #container>.item>#hover{
     position: absolute;
     top: 0;
     right: 0;
@@ -32,18 +52,18 @@
     font-size: 14px;
     display: none;
 }
-#trending .row>.item>#hover>#username{
+#trending #container>.item>#hover>#username{
     color: white;
     margin-top: 8px;
     margin-left: 10%;
 }
-#trending .row>.item>#hover>img{
+#trending #container>.item>#hover>img{
     position: absolute;
     top: 10px;
     right: 10px;
     width: 30px;
 }
-#trending .row>.item>#hover>#caption{
+#trending #container>.item>#hover>#caption{
     width: 80%;
     text-align: left;
     padding-left: 10%;
@@ -51,29 +71,26 @@
     color: white;
     margin-top: 10px;
 }
-#trending .row>.item>#hover>#status{
+#trending #container>.item>#hover>#status{
     bottom: 10px;
     left: 10%;
     position: absolute;
     display: flex;
     color: white;
 }
-#trending .row>.item>#hover>#status>.pack{
+#trending #container>.item>#hover>#status>.pack{
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 5px;
 }
-#trending .row>.item>#hover>#status>.pack>span{
+#trending #container>.item>#hover>#status>.pack>span{
     margin-left: 5px;
 }
-#trending .row>.item>#hover>#status>.pack>img{
+#trending #container>.item>#hover>#status>.pack>img{
     width: 20px;
     height: 20px;
-    border: 2px solid rgba(255,255,255,1);
-    border-radius: 20px;
-    padding: 3px;
 }
-#trending .row>.item>img{
+#trending #container>.item>img{
     width: 100%;
 }
