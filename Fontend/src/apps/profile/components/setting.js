@@ -42,12 +42,26 @@ class SwitchToBusiness extends React.Component{
             name: "",
             username:"",
             selection: 0,
-            status:'Switch Account'
+            status:'Switch Account',
+            categories: []
         };
         this.handleInput= this.handleInput.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
     }
+    componentDidMount() {
+         axios({
+            method: "post",
+            url: "http://127.0.0.1:8000/account/getCategory",
+            data: {userId:sessionStorage["id"]},
+            headers: {Authorization: "Token " + sessionStorage["token"]},
+        }).then(res => {
+            if(res.status===200){
+                this.setState({categories:res.data.data})
+            }
+        })
+    }
+
     handleInput(event){
         if(event.target.name==="name"){
             this.setState({name:event.target.value})
@@ -80,15 +94,9 @@ class SwitchToBusiness extends React.Component{
                             <input type="text" value={this.state.username} name="username" onChange={this.handleInput} placeholder="Your Business username"/><br/>
                             <input type="text" value={this.state.name} name="name" onChange={this.handleInput} placeholder="Your Business Name"/><br/>
                             <select onChange={this.handleSelect}>
-                                <option value="0">Choose Category</option>
-                                <option value="1">Computer</option>
-                                <option value="2">Science</option>
-                                <option value="3">Sports</option>
-                                <option value="4">Education</option>
-                                <option value="5">Doctory</option>
-                                <option value="6">Biology</option>
-                                <option value="7">Music</option>
-                                <option value="8">Social</option>
+                               {this.state.categories.map((item,index)=>{
+                                    return <option key={index} value={item.id}>{item.category}</option>
+                                })}
                             </select>
                         </div><br/>
                         <span>You can't follow anyone</span><br/>

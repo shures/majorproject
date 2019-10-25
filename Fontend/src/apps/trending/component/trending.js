@@ -10,13 +10,58 @@ export class Trending extends React.Component {
         this.state = {
             posts:[],
             openPost:false,
-            openPostId:0
+            openPostId:0,
         };
         this.openPost = this.openPost.bind(this);
     }
     openPost(id){
-        this.setState({openPost:true,openPostId:id});
+        if(id===null){
+            this.setState({openPost:false});
+        }else{
+            this.setState({openPost:true,openPostId:id});
+        }
     }
+
+
+    playPauseVideo(event) {
+        this.state.playPauseVideo ? event.target.pause() : event.target.play();
+        this.setState({playPauseVideo: !this.state.playPauseVideo})
+
+    }
+
+    handleCommentInput(event) {
+        this.setState({commentInput: event.target.value})
+    }
+
+    handleLike() {
+        this.setState({isLiked: !this.state.isLiked});
+        axios({
+            method: 'post',
+            data: {userId: sessionStorage["id"], postId: this.state.postId},
+            url: "http://127.0.0.1:8000/app/handleLike",
+            headers: {Authorization: "Token " + sessionStorage["token"]}
+        })
+            .then(res => {
+
+            });
+    }
+
+    handleComment(e) {
+        if (e.key === "Enter") {
+            axios({
+                method: 'post',
+                data: {userId: sessionStorage["id"], postId: this.state.postId, comment: this.state.commentInput},
+                url: "http://127.0.0.1:8000/app/handleComment",
+                headers: {Authorization: "Token " + sessionStorage["token"]}
+            })
+                .then(res => {
+
+                });
+        }
+    }
+
+
+
     componentWillMount() {
         axios({
             method: "post",
@@ -42,7 +87,7 @@ export class Trending extends React.Component {
                         })}
                     </div>
                 </div>
-                {this.state.openPost ? <PostOpen id={this.state.openPostId}/> : null}
+                {this.state.openPost ? <PostOpen openPost={this.openPost} id={this.state.openPostId}/> : null}
             </div>
         )
     }
@@ -52,9 +97,8 @@ class Item extends React.Component{
     constructor(){
         super();
         this.state={
-            isImage: false
+            isImage: false,
         };
-
     }
     componentWillMount() {
          let dotPosition = this.props.item.content.lastIndexOf('.');

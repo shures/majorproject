@@ -1,21 +1,33 @@
 #postUp{
-    top: 8%;
-    left: 20%;
-    right: 20%;
+    top: 5%;
+    left: 10%;
+    right: 10%;
     background-color: white;
     z-index: 8;
     position: absolute;
     display: flex;
     flex-direction: row;
+    bottom:0;
 }
-#postUp #img{
-    width: 65%;
+#postUp>#img{
+   width: 70%;
 }
-#postUp #img img{
+#postUp>#imagePost{
+
+}
+#postUp>#img>#status{
+   padding: 10px 5px 10px 10px;
+    font-size: 14px;
+    position: absolute;
+    bottom: 10px;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+}
+#postUp #img>#imagePost>img{
     width: 100%;
 }
 #postUp #foo{
-    width: 30%;
+    width: 25%;
     margin-left: 2.5%;
     margin-right: 2.5%;
     position: relative;
@@ -125,4 +137,11 @@
     padding: 0;
     margin: 0;
     border-top: 1px solid rgba(0,0,0,0.2);
+}
+#postUp>img{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: -15px;
+    top:-15px
 }

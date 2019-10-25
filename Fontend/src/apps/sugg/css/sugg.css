@@ -1,0 +1,68 @@
+#suggestion{
+    position:absolute;
+    top:100px;
+    left:14%;
+    right:50%;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+#suggestion>#title{
+    margin-top: 10px;
+    font-size: 18px;
+    color: #3897f0;
+    margin-bottom: 15px;
+}
+#suggestion>.item{
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+#suggestion>.item>#left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+#suggestion>.item>#left>#img{
+    height: 50px;
+    width: 50px;
+    border-radius: 60px;
+    overflow: hidden;
+}
+#suggestion>.item>#left>#img>img{
+    width: 50px;
+}
+#suggestion>.item>#left>#pack{
+    display: flex;
+    flex-direction: column;
+    margin-left: 18px;
+}
+#suggestion>.item>#left>#pack>span:nth-child(2){
+    color:rgba(0,0,0,0.7);
+}
+#suggestion>.item>#left>#pack>span:nth-child(3){
+    color:rgba(0,0,0,0.6);
+    font-size: 14px;
+}
+#suggestion>.item>#right{
+
+}
+#suggestion>.item>#right>span{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #3897f0;
+    color:white;
+    border-radius: 3px;
+}
+#suggestion>.item>#right>span:hover{
+    background-color: #2b8a3e;
+    cursor: pointer;
+}

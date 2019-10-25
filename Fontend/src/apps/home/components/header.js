@@ -21,6 +21,7 @@ export class Header extends React.Component {
         this.searchChange = this.searchChange.bind(this);
         this.fileInputClick = this.fileInputClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.searchEntered = this.searchEntered.bind(this);
     }
     fileInputClick() {
         this.fileInput.current.click();
@@ -33,6 +34,11 @@ export class Header extends React.Component {
     shMessage(){
         this.setState({is_message_shown:!this.state.is_message_shown})
     }
+    searchEntered(e){
+        if(e.keyCode === 13){
+            alert("Enter was pressed ");
+        }
+    }
     searchChange(event) {
         let search = this.state.search;
         search["search_key"] = event.target.value;
@@ -40,7 +46,7 @@ export class Header extends React.Component {
             axios({
                 method: 'post',
                 url: "http://127.0.0.1:8000/app/search_key",
-                data: {search_key:this.state.search.search_key},
+                data: {userId: sessionStorage["id"],search_key:this.state.search.search_key},
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })
             .then(res => {
@@ -131,7 +137,7 @@ export class Header extends React.Component {
                     </div>
                 </div>
                 <div id="search">
-                    <input type="search" value={this.state.search.search_key} placeholder="Search" onChange={this.searchChange}/>
+                    <input type="search" value={this.state.search.search_key} placeholder="Search" onChange={this.searchChange} onKeyUp={this.searchEntered}/>
                     <SearchBox data = {this.state.search.data}/>
                 </div>
                 <div id="title">

@@ -7,6 +7,8 @@ from app.models import PostLike
 from app.models import Trending
 from app.models import UserActivityLog
 from app.models import ViewCount
+from app.models import SearchHistory
+from app.models import Follow
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from django.db.models import F
@@ -317,6 +319,8 @@ def get_following(request):
 @permission_classes((AllowAny,))
 def search_key(request):
     key = request.data.get("search_key")
+    userId = request.data.get("userId")
+    print(userId)
     data = []
     if key != "":
         if key is not None:
@@ -324,13 +328,17 @@ def search_key(request):
                 users = User.objects.filter(username__contains=key)
             except User.DoesNotExist:
                 users = None
-
             if users is not None:
                 for user in users:
+                    isAlready = SearchHistory.objects.filter(user_id=userId, search_user_id=user.id)
+                    if not isAlready.exists():
+                        a = UserDetail.objects.get(user_id=user.id)
+                        if a.isBusiness:
+                            b = SearchHistory(user_id=userId, search_user_id=user.id)
+                            b.save()
                     data.append({'username': user.username, 'fn': user.first_name, 'id': user.id})
 
     return Response({"data": data}, status=HTTP_200_OK)
-
 @csrf_exempt
 @api_view(["GET"])
 def get_user_data(request):
@@ -378,33 +386,45 @@ def getPostItem(request):
                      "comments": comment_set,
                      "viewCount": item.viewCount}, status=HTTP_200_OK)
 
-    # ===================Trending Algorithm =============================
-    # post_uploaded_timestamp = float(item.date)
-    # now_timestamp = float(datetime.datetime.now().timestamp())
-    # one_day_timestamp = 86400
-    # time_elapsed = now_timestamp - post_uploaded_timestamp
-    # if item.isBusiness and time_elapsed <= one_day_timestamp:
-    #     row = ViewCount.objects.filter(user_id=user_id, post_id=item.id)
-    #     if not row.exists():
-    #         view_count = ViewCount(user_id=user_id, post_id=item.id)
-    #         view_count.save()
-    #         Post.objects.filter(id=item.id).update(viewCount=F('viewCount') + 1)
-    #         like_count = item.likes
-    #         comment_count = item.comments
-    #         view_count = item.viewCount + 1
-    #         point = (view_count + (like_count * 1.25) + (comment_count * 1.50)) / time_elapsed
-    #
-    #         trending_count = Trending.objects.all().count()
-    #         # if trending_count > 50:
-    #         #     Trending.objects.all().aggregate(Max('point')).delete()
-    #
-    #         row = Trending.objects.filter(post_id=item.id)
-    #         if row.exists():
-    #             row.update(point=point)
-    #         else:
-    #             trending = Trending(point=point, post_id=item.id)
-    #             trending.save()
-    #
-    #         if datetime.datetime.now().timestamp() > float(item.date)+86400:
-    #             Trending.objects.filter(post_id=item.id).delete()
+@api_view(['POST'])
+def sugg(request):
+    # get suggestions from like comment view follow and search history
+    global user
+    user_id = request.data.get("userId")
 
+    # get suggestions from like
+    data = []
+    categories = []
+    likes = PostLike.objects.filter(user_id=user_id).order_by('-id')[:5]
+    for item in likes:
+        try:
+            follow_check = Follow.objects.get(followed_id=item.post.user_id, follower_id=user_id)
+        except Follow.DoesNotExist:
+            follow_check = None
+        if not follow_check and (item.post.user_id == user_id):
+            print(item.post.user_id)
+            print(user_id)
+            user_detail = True
+            try:
+                user = UserDetail.objects.get(user_id=item.post.user_id, isBusiness=True)
+            except UserDetail.DoesNotExist:
+                user_detail = False
+            if user_detail:
+                categories.append(user.category)
+    if len(categories) > 0:
+        users = UserDetail.objects.filter(isBusiness=most_frequent(categories)).order_by("-id")[:3]
+        for user in users:
+            data.append({"username": user.user.username, "name": user.user.first_name, "pp": user.file_name, "addr": user.addr})
+    return Response({"data": data}, status=HTTP_200_OK)
+
+
+def most_frequent(List):
+    counter = 0
+    num = List[0]
+    for i in List:
+        curr_frequency = List.count(i)
+        if curr_frequency > counter:
+            counter = curr_frequency
+            num = i
+
+    return num

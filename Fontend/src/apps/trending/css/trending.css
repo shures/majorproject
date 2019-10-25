@@ -34,10 +34,9 @@
 #trending #container>.item{
     position: relative;
     height: 200px;
-    width: 200px;
     margin-right: 10px;
     margin-bottom:10px;
-    background-color: white;
+    background-color: transparent;
 }
 #trending #container>.item:hover #hover{
     display: block;
@@ -98,5 +97,6 @@
     width:100%;
 }
 #trending #container>.item>#content>#imagePost>img{
-    width: 200px;
+    height: 200px;
+    border-radius: 2px;
 }

@@ -53,3 +53,9 @@ class UserActivityLog(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     post_category = models.CharField(max_length=100)
 
+class BusinessCategory(models.Model):
+    category = models.CharField(max_length=50)
+
+class SearchHistory(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+    search_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='search_user')

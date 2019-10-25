@@ -18,6 +18,7 @@ import datetime
 from account.models import Verify
 from django.core.mail import send_mail
 from myprofile.models import UserDetail
+from app.models import BusinessCategory
 now = datetime.datetime.now()
 
 
@@ -191,3 +192,13 @@ def switch_to_business(request):
     user = User.objects.filter(id=user_id).update(first_name=name, username=username)
     UserDetail.objects.filter(user_id=user_id).update(isBusiness=1, category=category)
     return Response(status=HTTP_200_OK)
+
+@csrf_exempt
+@api_view(["POST"])
+def getCategory(request):
+    data = []
+    user_id = request.data.get("userId")
+    category = BusinessCategory.objects.all()
+    for item in category:
+        data.append({"id": item.id, "category": item.category})
+    return Response({"data": data}, status=HTTP_200_OK)

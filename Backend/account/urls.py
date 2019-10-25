@@ -6,5 +6,6 @@ urlpatterns = [
     path("signUp", views.sign_up),
     path("verifyAccount", views.verifyAccount),
     path("switchToBusiness", views.switch_to_business),
+    path("getCategory", views.getCategory),
 
 ]

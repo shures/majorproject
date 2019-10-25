@@ -10,5 +10,5 @@ class UserDetail(models.Model):
     quote2 = models.CharField(max_length=255)
     quote3 = models.CharField(max_length=255)
     site = models.CharField(max_length=50)
-    isBusiness = models.CharField(max_length=50)
+    isBusiness = models.BooleanField(default=False)
     category = models.CharField(max_length=50)

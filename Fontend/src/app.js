@@ -14,6 +14,8 @@ import {Canvas} from "./apps/test/thumb";
 import {UserProfile} from "./apps/profile/components/userprofile";
 import {VerifyAccount} from "./apps/account/components/verifyaccount";
 import {Setting} from "./apps/profile/components/setting";
+import {Post} from "./apps/trending/component/new";
+import {Sugg} from "./apps/sugg/components/sugg";
 
 class App extends Component{
     render(){
@@ -28,10 +30,12 @@ class App extends Component{
                 <Route exact path="/browse" component={Browse}/>
                 <Route exact path="/post" component={PostOpen}/>
                 <Route exact path="/follow" component={Follow}/>
+                <Route exact path="/abc" component={Post}/>
                 <Route exact path="/video" component={Video}/>
                 <Route exact path="/canvas" component={Canvas}/>
                 <Route exact path="/userprofile" component={UserProfile}/>
                 <Route exact path="/setting" component={Setting}/>
+                <Route exact path="/sugg" component={Sugg}/>
                 <Route exact path="/:username" component={UserProfile}/>
             </Switch>
         );
