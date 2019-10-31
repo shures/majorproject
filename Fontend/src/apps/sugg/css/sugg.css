@@ -34,7 +34,7 @@
     overflow: hidden;
 }
 #suggestion>.item>#left>#img>img{
-    width: 50px;
+    width: 70px;
 }
 #suggestion>.item>#left>#pack{
     display: flex;
@@ -47,6 +47,10 @@
 #suggestion>.item>#left>#pack>span:nth-child(3){
     color:rgba(0,0,0,0.6);
     font-size: 14px;
+}
+#suggestion>.item>#left>#pack>span:nth-child(4){
+    color:rgba(0,0,0,0.4);
+    font-size: 12px;
 }
 #suggestion>.item>#right{
 

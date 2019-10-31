@@ -2,12 +2,14 @@ import React from 'react'
 import '../css/sugg.css'
 import axios from "axios";
 import {Header} from "../../home/components/header";
+import {User} from "../../home/components/user";
+import {Redirect} from "react-router-dom";
 
 export class Sugg extends React.Component {
     constructor() {
         super();
         this.state={
-
+            users:[]
         }
     }
     componentWillMount() {
@@ -18,7 +20,8 @@ export class Sugg extends React.Component {
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
             if(res.status===200){
-                console.log(res.data.data);
+                this.setState({users:res.data.data})
+                console.log(res.data)
             }
         })
     }
@@ -28,23 +31,67 @@ export class Sugg extends React.Component {
                 <Header/>
                 <div id="suggestion">
                     <div id="title">Suggested Business Page</div>
-                    <div className="item">
+                    {this.state.users.map((item,index)=>{
+                        return <Item key={index} item = {item}/>
+                    })}
+                    <div id="title">Suggested Users</div>
+                </div>
+            </div>
+        )
+    }
+}
+class Item extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            redirect:{re:false,username:''},
+            followed:false
+        };
+        this.gotoProfile = this.gotoProfile.bind(this);
+    }
+    follow(id) {
+        axios({
+            method: 'post',
+            url: "http://127.0.0.1:8000/app/follow",
+            data: {local_id: sessionStorage["id"], remote_id:id},
+            headers: {Authorization: "Token " + sessionStorage["token"]},
+        })
+        .then(res => {
+            if (res.data.data === true) {
+                this.setState({followed: true})
+            }else{
+                this.setState({followed: false})
+            }
+        });
+
+    }
+    gotoProfile(username){
+        let redirect = this.state.redirect;
+        redirect["re"] = true;
+        redirect["username"] =username;
+        this.setState({redirect:redirect})
+    }
+    render() {
+          if (this.state.redirect.re) {
+            return <Redirect to={this.state.redirect.username}/>
+          }
+          return (
+            <div className="item">
                         <div id="left">
                             <div id="img">
-                                <img src={require("../images/girl.jpg")}/>
+                                 <img src={"http://127.0.0.1:8000/media/" + this.props.item.pp}/>
                             </div>
-                            <div id="pack">
-                                <span><b>iloveyou_name</b></span>
-                                <span>Shures Nepali</span>
-                                <span>From Syang Village Mustang</span>
+                            <div id="pack" onClick={()=>{this.gotoProfile(this.props.item.username)}}>
+                                <span><b>{this.props.item.username}</b></span>
+                                <span>{this.props.item.name}</span>
+                                <span>{this.props.item.addr}</span>
                             </div>
                         </div>
                         <div id="right">
-                            <span>Follow</span>
+                            {this.state.followed ? <span style={{backgroundColor:"#2b8a3e"}} onClick={()=>{this.follow(this.props.item.id)}}>Followed</span> :
+                            <span style={{backgroundColor:"#3897f0"}} onClick={()=>{this.follow(this.props.item.id)}}>Follow</span> }
                         </div>
                     </div>
-                </div>
-            </div>
         )
     }
 }

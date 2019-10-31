@@ -186,9 +186,9 @@ def validatePhone(email):
 def switch_to_business(request):
     user_id = request.data.get("userId")
     category = request.data.get("category")
+    print(category)
     name = request.data.get("name")
     username = request.data.get("username")
-    print(user_id+category+name+username)
     user = User.objects.filter(id=user_id).update(first_name=name, username=username)
     UserDetail.objects.filter(user_id=user_id).update(isBusiness=1, category=category)
     return Response(status=HTTP_200_OK)

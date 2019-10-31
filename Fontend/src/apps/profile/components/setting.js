@@ -41,7 +41,7 @@ class SwitchToBusiness extends React.Component{
         this.state={
             name: "",
             username:"",
-            selection: 0,
+            selection: 1,
             status:'Switch Account',
             categories: []
         };

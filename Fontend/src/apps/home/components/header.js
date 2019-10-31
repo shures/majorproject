@@ -14,22 +14,24 @@ export class Header extends React.Component {
             fileUpload:{
                 selectedFile: null,
                 selectedMenu :"home"
-            }
+            },
+            isBusiness:false
         };
-        this.fileInput = React.createRef();
         this.shMessage = this.shMessage.bind(this);
         this.searchChange = this.searchChange.bind(this);
-        this.fileInputClick = this.fileInputClick.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.searchEntered = this.searchEntered.bind(this);
     }
-    fileInputClick() {
-        this.fileInput.current.click();
-    }
-    handleChange(event){
-        let file = event.target.files[0];
-        let url = URL.createObjectURL(file);
-        this.props.showUploadBox(file,url);
+    componentWillMount() {
+        axios({
+            method: "post",
+            url: "http://127.0.0.1:8000/myprofile/getProfile",
+            data: {userId:sessionStorage["id"]},
+            headers: {Authorization: "Token " + sessionStorage["token"]},
+        }).then(res => {
+            if(res.status===200){
+                this.setState({isBusiness:res.data.data["isBusiness"]})
+            }
+        })
     }
     shMessage(){
         this.setState({is_message_shown:!this.state.is_message_shown})
@@ -66,9 +68,7 @@ export class Header extends React.Component {
             <header>
                 <div id="n_home">
                     <div id="post">
-                        {/*<Link to="/"><img id="home" src={require("../icons/home.png")}/></Link>*/}
-                        <img src={require("../icons/homesel.png")} onClick={this.fileInputClick}/>
-                        <input type="file"  ref={this.fileInput} onChange={this.handleChange}/>
+                        <Link to="/"><img id="home" src={require("../icons/home.png")}/></Link>
                     </div>
                     <div id="message">
                         <img src={require('./../images/001-heart.png')} onClick={this.shMessage}/>
@@ -145,7 +145,7 @@ export class Header extends React.Component {
                     <span>Tasbiralaya</span>
                 </div>
                 <div id="account_name">
-                    <span>Business Account</span>
+                    {this.state.isBusiness ? <span>Business Account !!!</span>:<span>Personal Account !!!</span> }
                 </div>
             </header>
         )

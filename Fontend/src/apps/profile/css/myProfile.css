@@ -17,9 +17,6 @@
     flex-direction: column;
     align-items: center;
 }
-#myProfile #about>#image>#img{
-
-}
 #myProfile #about>#image>#foo{
     margin-top: 10px;
     flex-direction: column;
@@ -34,14 +31,22 @@
     margin-top: 5px;
 }
 #myProfile #about>#image>#img{
+     height: 160px;
+     width: 160px;
+     border-radius: 160px;
+     border: 5px solid #3897f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#myProfile #about>#image>#img>#img1{
     height: 150px;
     width: 150px;
-    border-radius: 145px;
+    border-radius: 150px;
     overflow: hidden;
-    border: 5px dashed black;
 }
-#myProfile #about>#image>#img>img{
-    width: 100%;
+#myProfile #about>#image>#img>#img1>img{
+    width: 180px;
 }
 #myProfile #about>#detail{
     margin-left: 30px;

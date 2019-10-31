@@ -34,6 +34,7 @@ export class Home extends React.Component {
         }
     }
     showUploadBox(file,url){
+        console.log("file got");
         let dotPosition = file.name.lastIndexOf('.');
         let extension = file.name.substr(dotPosition+1);
         if (extension === "mp4") {
@@ -105,7 +106,7 @@ export class Home extends React.Component {
                         {/*<Hom_nf file={this.state.fileUpload}/>*/}
                     </div>
                      <div id="left">
-                        <User VideoUpload=""/>
+                        <User showUploadBox = {this.showUploadBox} hey={"i love you"}/>
                         <Sugg/>
                     </div>
                 </div>
@@ -239,15 +240,15 @@ class ImageUploadPost extends React.Component{
                     <div style={{width:`${this.state.loaded}`}} id="progressBar">
 
                     </div>
-                    <div id="block">
-                    <div id="caption">
-                        <input type="text" value={this.state.caption} onChange={this.handleCaptionInput} placeholder="Add Captions ..."/>
+                    <div id="block1">
+                        <div id="caption">
+                            <input type="text" value={this.state.caption} onChange={this.handleCaptionInput} placeholder="Add Captions ..."/>
+                        </div>
+                        <div id="uploadAction">
+                            <button disabled={this.state.disabled} onClick={this.uploadImagePost}>{this.state.uploadState}</button>
+                            <span onClick={()=>{this.props.closeUploadBox("image")}}>{this.state.cancelOrClose}</span>
+                        </div>
                     </div>
-                    <div id="uploadAction">
-                        <button disabled={this.state.disabled} onClick={this.uploadImagePost}>{this.state.uploadState}</button>
-                        <span onClick={()=>{this.props.closeUploadBox("image")}}>{this.state.cancelOrClose}</span>
-                    </div>
-                </div>
                 </div>
             </div>
         )

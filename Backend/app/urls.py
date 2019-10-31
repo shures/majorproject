@@ -12,7 +12,7 @@ urlpatterns = [
     path('handleLike', views.handleLike),
     path('handleComment', views.handleComment),
     path("fileupload", views.file_upload),
-    path("postUpload", views.postUpload),
+    # path("postUpload", views.postUpload),
     path("search_key", views.search_key),
     path("getUserDetails", views.get_user_data),
     path("trending", views.trending),

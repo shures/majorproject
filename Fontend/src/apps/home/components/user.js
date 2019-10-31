@@ -4,13 +4,25 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 
 export class User extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             addr:'',
-            profilePic:''
+            profilePic:'',
+            hey:"how"
         };
+        this.fileInput = React.createRef();
         this.isProfilePic = this.isProfilePic.bind(this);
+        this.fileInputClick = this.fileInputClick.bind(this);
+        this.handleChange= this.handleChange.bind(this);
+    }
+    fileInputClick() {
+        this.fileInput.current.click();
+    }
+    handleChange(event){
+        let file = event.target.files[0];
+        let url = URL.createObjectURL(file);
+        this.props.showUploadBox(file,url);
     }
     componentWillMount() {
         axios({
@@ -36,13 +48,16 @@ export class User extends React.Component {
     render() {
         return (<div id="user">
             <div id="image1">
-                {this.isProfilePic()}
+                <div id="img">
+                    {this.isProfilePic()}
+                </div>
             </div>
             <div id="foo">
                 <span><Link to="/profile">{sessionStorage["username"]}</Link></span>
                 <span>{sessionStorage["fn"]}</span>
-                <span>Upload Post</span>
-                <span>More</span>
+                <span onClick={this.fileInputClick}>Upload Post</span>
+                <input type="file" ref={this.fileInput} onChange={this.handleChange}/>
+                <span>See more</span>
             </div>
         </div>)
     }

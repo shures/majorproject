@@ -23,13 +23,12 @@ export class SearchBox extends React.Component{
             return (
                 <div id="search_box">
                     {this.props.data.map((item,index)=>{
-                        return <div onClick={()=>this.handleItemClick(item)} key={index} className="item">
-                                <img src={require("../images/katrina.jpeg")} />
+                        return <div onClick={()=>this.handleItemClick(item)} key={index} className="item1">
                                 <div id="pack">
-                                <div id="username">{item.username}</div>
-                                <div id="about">{item.fn}</div>
+                                     <div id="username">{item.username}</div>
+                                     <div id="about">{item.fn}</div>
+                                </div>
                             </div>
-                        </div>
                     })}
                 </div>
             );

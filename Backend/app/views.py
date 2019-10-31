@@ -9,6 +9,7 @@ from app.models import UserActivityLog
 from app.models import ViewCount
 from app.models import SearchHistory
 from app.models import Follow
+from app.models import ViewCount
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from django.db.models import F
@@ -88,7 +89,14 @@ def getPost(request):
                      "fn": item.user.first_name,
                      "isLiked": is_liked,
                      "comments": comment_set,
-                     "viewCount": item.viewCount})
+                     "viewCount": item.viewCount,
+                     "isBusiness":item.isBusiness})
+
+        row = ViewCount.objects.filter(user_id=user_id, post_id=item.id)
+        if not row.exists() and item.isBusiness:
+            view_count = ViewCount(user_id=user_id, post_id=item.id)
+            view_count.save()
+            Post.objects.filter(id=item.id).update(viewCount=F('viewCount') + 1)
 
         # ===================Trending Algorithm =============================
         post_uploaded_timestamp = float(item.date)
@@ -96,29 +104,24 @@ def getPost(request):
         one_day_timestamp = 86400
         time_elapsed = now_timestamp - post_uploaded_timestamp
         if item.isBusiness and time_elapsed <= one_day_timestamp:
-            row = ViewCount.objects.filter(user_id=user_id, post_id=item.id)
-            if not row.exists():
-                view_count = ViewCount(user_id=user_id, post_id=item.id)
-                view_count.save()
-                Post.objects.filter(id=item.id).update(viewCount=F('viewCount') + 1)
-                like_count = item.likes
-                comment_count = item.comments
-                view_count = item.viewCount + 1
-                point = (view_count + (like_count * 1.25) + (comment_count * 1.50)) / time_elapsed
+            like_count = item.likes
+            comment_count = item.comments
+            view_count = item.viewCount + 1
+            point = (view_count + (like_count * 1.25) + (comment_count * 1.50)) / time_elapsed
 
-                trending_count = Trending.objects.all().count()
-                # if trending_count > 50:
-                #     Trending.objects.all().aggregate(Max('point')).delete()
+            trending_count = Trending.objects.all().count()
+            # if trending_count > 50:
+            #     Trending.objects.all().aggregate(Max('point')).delete()
 
-                row = Trending.objects.filter(post_id=item.id)
-                if row.exists():
-                    row.update(point=point)
-                else:
-                    trending = Trending(point=point, post_id=item.id)
-                    trending.save()
+            row = Trending.objects.filter(post_id=item.id)
+            if row.exists():
+                row.update(point=point)
+            else:
+                trending = Trending(point=point, post_id=item.id)
+                trending.save()
 
-                if datetime.datetime.now().timestamp() > float(item.date)+86400:
-                    Trending.objects.filter(post_id=item.id).delete()
+            if datetime.datetime.now().timestamp() > float(item.date)+86400:
+                Trending.objects.filter(post_id=item.id).delete()
 
     return Response({"posts": data}, status=HTTP_200_OK)
 
@@ -132,26 +135,11 @@ def handleLike(request):
         row.delete()
         Post.objects.filter(id=request.data.get("postId")).update(likes=F('likes') - 1)
 
-        # activity log update =========================================================
-        user_detail = UserDetail.objects.get(user_id=user_id)
-        if user_detail.isBusiness:
-            UserActivityLog.objects.get(action="like", user_id=user_id,
-                                        post_id=post_id).delete()
-        # end of activity log update ==================================================
-
         data = False
     else:
         p = PostLike(post_id=request.data.get("postId"), user_id=request.data.get("userId"))
         p.save()
         Post.objects.filter(id=request.data.get("postId")).update(likes=F('likes') + 1)
-
-        # activity log update ======================================================
-        user_detail = UserDetail.objects.get(user_id=user_id)
-        if user_detail.isBusiness:
-            user_activity = UserActivityLog(action="like", post_category=user_detail.category, user_id=user_id,
-                                            post_id=post_id)
-            user_activity.save()
-        # end of activity log update ===============================================
 
         data = True
 
@@ -265,16 +253,16 @@ def file_upload(request):
     return Response(status=HTTP_200_OK)
 
 
-@csrf_exempt
-@api_view(["POST"])
-def postUpload(request):
-    user_id = request.data.get("user_id")
-    caption = request.data.get("caption")
-    file_name = request.data.get("fileName")
-    p = Post(userId=user_id, caption=caption, content=file_name, likes=0, comments=0,
-             date=now.strftime("%Y-%m-%d %H:%M:%S"))
-    p.save()
-    return Response(status=HTTP_200_OK)
+# @csrf_exempt
+# @api_view(["POST"])
+# def postUpload(request):
+#     user_id = request.data.get("user_id")
+#     caption = request.data.get("caption")
+#     file_name = request.data.get("fileName")
+#     p = Post(userId=user_id, caption=caption, content=file_name, likes=0, comments=0,
+#              date=now.strftime("%Y-%m-%d %H:%M:%S"))
+#     p.save()
+#     return Response(status=HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -389,33 +377,94 @@ def getPostItem(request):
 @api_view(['POST'])
 def sugg(request):
     # get suggestions from like comment view follow and search history
-    global user
     user_id = request.data.get("userId")
+    data = []
 
     # get suggestions from like
-    data = []
-    categories = []
+    like_categories = []
     likes = PostLike.objects.filter(user_id=user_id).order_by('-id')[:5]
     for item in likes:
+        user_detail = True
         try:
-            follow_check = Follow.objects.get(followed_id=item.post.user_id, follower_id=user_id)
-        except Follow.DoesNotExist:
-            follow_check = None
-        if not follow_check and (item.post.user_id == user_id):
-            print(item.post.user_id)
-            print(user_id)
+            user = UserDetail.objects.get(user_id=item.post.user_id, isBusiness=True)
+        except UserDetail.DoesNotExist:
+            user_detail = False
+        if user_detail:
+            like_categories.append(user.category)
+    if len(like_categories) > 0:
+        get_users(like_categories, user_id, data)
+
+    # get suggestions from  Comment
+    comment_categories = []
+    comments = PostComment.objects.filter(user_id=user_id).order_by('-id')[:5]
+    for item in comments:
+        user_detail = True
+        try:
+            user = UserDetail.objects.get(user_id=item.post.user_id, isBusiness=True)
+        except UserDetail.DoesNotExist:
+            user_detail = False
+        if user_detail:
+            comment_categories.append(user.category)
+    if len(comment_categories) > 0:
+        get_users(comment_categories, user_id, data)
+
+    # get suggestions from follow
+    follow_categories = []
+    followed_id = Follow.objects.filter(follower_id=user_id)
+    user_detail = True
+    for item in followed_id:
+        try:
+            user = UserDetail.objects.get(user_id=item.followed.id, isBusiness=True)
+        except UserDetail.DoesNotExist:
+            user_detail = False
+        if user_detail:
+            follow_categories.append(user.category)
+    if len(follow_categories) > 0:
+        get_users(follow_categories, user_id, data)
+
+    # get suggestions from searchHistory
+    search_categories = []
+    searched_id = SearchHistory.objects.filter(user_id=user_id)
+    user_detail = True
+    for item in searched_id:
+        try:
+            user = UserDetail.objects.get(user_id=item.search_user.id, isBusiness=True)
+        except UserDetail.DoesNotExist:
+            user_detail = False
+        if user_detail:
+            search_categories.append(user.category)
+    if len(search_categories) > 0:
+        get_users(search_categories, user_id, data)
+
+        # get suggestions from  Veiw
+        view_categories = []
+        views = ViewCount.objects.filter(user_id=user_id).order_by('-id')[:5]
+        for item in views:
             user_detail = True
             try:
                 user = UserDetail.objects.get(user_id=item.post.user_id, isBusiness=True)
             except UserDetail.DoesNotExist:
                 user_detail = False
             if user_detail:
-                categories.append(user.category)
-    if len(categories) > 0:
-        users = UserDetail.objects.filter(isBusiness=most_frequent(categories)).order_by("-id")[:3]
-        for user in users:
-            data.append({"username": user.user.username, "name": user.user.first_name, "pp": user.file_name, "addr": user.addr})
+                view_categories.append(user.category)
+        if len(view_categories) > 0:
+            get_users(view_categories, user_id, data)
     return Response({"data": data}, status=HTTP_200_OK)
+
+def get_users(categories, user_id, data):
+    users = UserDetail.objects.filter(isBusiness=True, category=most_frequent(categories)).order_by("-id")[:3]
+    for user in users:
+        try:
+            follow_check = Follow.objects.get(followed_id=user.user_id, follower_id=user_id)
+        except Follow.DoesNotExist:
+            follow_check = None
+        if follow_check is None:
+            if not {"id": user.user.id, "username": user.user.username, "name": user.user.first_name,
+                    "pp": user.file_name,
+                    "addr": user.addr} in data:
+                data.append({"id": user.user.id, "username": user.user.username, "name": user.user.first_name,
+                             "pp": user.file_name,
+                             "addr": user.addr})
 
 
 def most_frequent(List):
@@ -426,5 +475,4 @@ def most_frequent(List):
         if curr_frequency > counter:
             counter = curr_frequency
             num = i
-
     return num

@@ -58,7 +58,9 @@ export class MyProfile extends React.Component {
                     <div id="about">
                         <div id="image">
                             <div id="img">
-                                {this.isProfilePic()}
+                                <div id="img1">
+                                    {this.isProfilePic()}
+                                </div>
                             </div>
                             <div id="foo">
                                 <span onClick={this.loadUploadPP}>Upload Profile</span>

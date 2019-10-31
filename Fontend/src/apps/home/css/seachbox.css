@@ -8,36 +8,32 @@
     border-radius: 2px;
     overflow: hidden;
 }
-#search_box>.item{
-    clear: both;
+#search_box>.item1{
     width: 90%;
-    margin:5px 5% 5px 5%;
-    overflow: hidden;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-#search_box>.item>img{
-    height: 31px;
-    width: 31px;
-    float: left;
-    border-radius: 35px;
-    padding: 2px;
-    border: 2px solid #3897f0;
-}
-#search_box>.item>#pack{
-    float: left;
+    padding:3% 5% 3% 5%;
     display: flex;
-    flex-direction: column;
-    margin-left: 15px;
-
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
-#search_box>.item>#pack>#username{
+#search_box>.item1:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+#search_box>.item1>#pack{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-left: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    padding-bottom: 5px;
+}
+#search_box>.item1>#pack>#username{
     font-size: 14px;
     font-weight: 600;
     color: rgba(0,0,0,0.8);
     letter-spacing: 0.2px;
 }
-#search_box>.item>#pack>#about{
+#search_box>.item1>#pack>#about{
     font-size: 16px;
     color: rgba(0,0,0,0.5);
 }

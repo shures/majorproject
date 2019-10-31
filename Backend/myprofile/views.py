@@ -68,4 +68,6 @@ def get_profile(request):
         data["quote3"] = item.quote3,
         data["site"] = item.site,
         data["profilePic"] = item.file_name
+        data["isBusiness"] = item.isBusiness
+        print(data["isBusiness"])
     return Response({"data": data}, status=HTTP_200_OK)

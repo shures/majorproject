@@ -49,7 +49,9 @@ export class Follow extends React.Component{
                 <Header/>
                 <div id="follow">
                     <div id="profile">
-                        {this.isProfilePic()}
+                        <div id="img">
+                            {this.isProfilePic()}
+                        </div>
                     </div>
                     <div id="container">
                         <div id="head">
@@ -181,7 +183,7 @@ class FollowingItem extends React.Component{
                         <div id="foo">{this.props.item.name}</div>
                     </div>
                     <div id="more">
-                        <span style={{boxShadow:'0 0 1px 0 darkgreen'}}>You are Following</span>
+                        <span>You are Following</span>
                     </div>
                 </div>
         )
