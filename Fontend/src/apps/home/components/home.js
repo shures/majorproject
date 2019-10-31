@@ -94,6 +94,7 @@ export class Home extends React.Component {
                 <Header showUploadBox = {this.showUploadBox} />
                 <div id="container">
                     <div id="posts">
+                        {this.state.posts.length<1 ? <div id="noData">You don't have any posts right now, Please see the suggestions and have some post followed.</div>:null}
                         {this.state.posts.map((item)=>{
                         if(this.state.posts.length>0){
                             return <Post post={item}/>

@@ -2,33 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d0c1513-6eac-4a77-963f-de07d31378f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_120315.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_120315_2gXEhHs.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/media/shures.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/media/shures_Nei14YE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/media/tilicho_AjHg8N9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/media/tilicho_aBwGpaG.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/BeautyPlus_20191003110410152_save.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_112839.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_120315_oipPGUS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_142233.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_142233_qUtKO02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_142236.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191013_142236_58qmrXl.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/myprofile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/myprofile/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/follow.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/follow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/sugg.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/sugg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/follow.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/follow.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/imageUploadPost.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/imageUploadPost.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/seachbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/seachbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/sugg.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/sugg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/tranding.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/tranding.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/post.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/tranding.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/tranding.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/components/myprofile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/components/myprofile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/components/setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/components/setting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/css/myProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/css/myProfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/sugg/components/sugg.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/sugg/components/sugg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/sugg/css/sugg.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/sugg/css/sugg.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,6 +139,7 @@
       <workItem from="1572060057468" duration="12537000" />
       <workItem from="1572102286205" duration="7122000" />
       <workItem from="1572110744327" duration="365000" />
+      <workItem from="1572534685911" duration="13682000" />
     </task>
     <servers />
   </component>

@@ -86,6 +86,11 @@
     display: flex;
     justify-content: center;
 }
+.post>#time{
+    color:rgba(0,0,0,0.5);
+    font-size: 14px;
+    padding: 1px 2% 15px 2%;
+}
 .post>#post_action>img{
     height: 25px;
     width: 25px;

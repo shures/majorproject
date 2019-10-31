@@ -1,7 +1,5 @@
 #tn{
     width: 95%;
-    padding-top: 5px;
-    overflow: hidden;
     padding-left: 5%;
     overflow-y: auto;
 }
@@ -17,6 +15,11 @@
     font-size: 14px;
     overflow: hidden;
 }
+#tn #seeAll{
+    color:rgba(0,0,0,0.7);
+    margin-top: 15px;
+    cursor: pointer;
+}
 #tn #content>.item{
     clear: both;
     margin-top: 5px;
@@ -24,18 +27,23 @@
     height: 50px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction:row;
+    padding-top: 10px;
 }
 #tn #content>.item:last-child{
     border-bottom: none;
 }
-#tn #content>.item>img{
+#tn #content>.item>#img{
     height: 45px;
     width: 45px;
-    border-radius: 47px;
-    float: left;
-    padding: 3px;
+    border-radius: 45px;
+    overflow: hidden;
     border:2px solid crimson;
-
+}
+#tn #content>.item>#img>img{
+    width: 60px;
 }
 #tn #content>.item>#pack{
     float: left;

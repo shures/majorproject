@@ -2,22 +2,32 @@ import React, {Component} from 'react';
 import {Header} from "../../home/components/header";
 import axios from "axios";
 import './../css/setting.css'
+import {Link, Redirect} from "react-router-dom";
 
 export class Setting extends React.Component{
     constructor(){
         super();
         this.state={
-            showSwitchToBusiness: true
-        }
+            showSwitchToBusiness: false,
+            logout:false
+        };
+        this.logout = this.logout.bind(this);
+    }
+    logout(){
+        sessionStorage.clear();
+        this.setState({logout:true})
     }
     render() {
+        if(this.state.logout===true){
+            return <Redirect to="/"/>
+        }
         return(
             <div id="setting">
                 <Header/>
                 <div id="container">
                     <div id="menu">
                         <div className="item">
-                            <span>Log Out</span>
+                            <span onClick={this.logout}>Log Out</span>
                         </div>
                         <div className="item">
                             <span onClick={()=>{this.setState({showSwitchToBusiness:!this.state.showSwitchToBusiness})}}>Switch to Business App</span>

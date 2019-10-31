@@ -69,59 +69,84 @@ def isFollowing(request):
 def getPost(request):
     data = []
     user_id = request.data.get("userId")
-    p = Post.objects.all()
-    for item in p:
-        is_liked = False
-        like = PostLike.objects.filter(post_id=item.id, user_id=user_id)
-        if like.exists():
-            is_liked = True
-        comment_set = []
-        comments = item.postcomment_set.all()
-        for comment in comments:
-            comment_set.append({"comment": comment.comment, "username": comment.user.username})
-        data.append({"id": item.id,
-                     "caption": item.caption,
-                     "content": item.content,
-                     "date": item.date,
-                     "likeCount": item.likes,
-                     "commentCount": item.comments,
-                     "username": item.user.username,
-                     "fn": item.user.first_name,
-                     "isLiked": is_liked,
-                     "comments": comment_set,
-                     "viewCount": item.viewCount,
-                     "isBusiness":item.isBusiness})
+    # p = Post.objects.all()
+    f = Follow.objects.filter(follower_id=user_id)
+    for user in f:
+        p = Post.objects.filter(user_id=user.followed.id).order_by("-id")
+        for item in p:
+            is_liked = False
+            like = PostLike.objects.filter(post_id=item.id, user_id=user_id)
+            if like.exists():
+                is_liked = True
+            comment_set = []
+            comments = item.postcomment_set.all()
+            for comment in comments:
+                comment_set.append({"comment": comment.comment, "username": comment.user.username})
 
-        row = ViewCount.objects.filter(user_id=user_id, post_id=item.id)
-        if not row.exists() and item.isBusiness:
-            view_count = ViewCount(user_id=user_id, post_id=item.id)
-            view_count.save()
-            Post.objects.filter(id=item.id).update(viewCount=F('viewCount') + 1)
+            user_detail = UserDetail.objects.get(user_id=item.user.id)
+            pp = ''
+            if user_detail.file_name != "":
+                pp = user_detail.file_name
+                print(pp)
 
-        # ===================Trending Algorithm =============================
-        post_uploaded_timestamp = float(item.date)
-        now_timestamp = float(datetime.datetime.now().timestamp())
-        one_day_timestamp = 86400
-        time_elapsed = now_timestamp - post_uploaded_timestamp
-        if item.isBusiness and time_elapsed <= one_day_timestamp:
-            like_count = item.likes
-            comment_count = item.comments
-            view_count = item.viewCount + 1
-            point = (view_count + (like_count * 1.25) + (comment_count * 1.50)) / time_elapsed
+            time = 0
+            post_uploaded_timestamp = float(item.date)
+            now_timestamp = float(datetime.datetime.now().timestamp())
+            time_elapsed = now_timestamp - post_uploaded_timestamp
+            if time_elapsed < 60:
+                time = str(int(time_elapsed)) + " " + "seconds ago"
+            elif 60 < time_elapsed < 3600:
+                time = str(int(time_elapsed / 60)) + " " + "minutes ago"
+            elif 3600 < time_elapsed < 84600:
+                time = str(int((time_elapsed / 60) / 60)) + " " + "hours ago"
+            elif time_elapsed > 84600:
+                time = str(int(((time_elapsed / 60) / 60)/24)) + " " + "days ago"
+            # compare the id with the id of last item in data
+            data.append({"id": item.id,
+                         "caption": item.caption,
+                         "content": item.content,
+                         "date": time,
+                         "likeCount": item.likes,
+                         "commentCount": item.comments,
+                         "username": item.user.username,
+                         "fn": item.user.first_name,
+                         "isLiked": is_liked,
+                         "comments": comment_set,
+                         "viewCount": item.viewCount,
+                         "isBusiness": item.isBusiness,
+                         "pp": pp,
+                         "addr": user_detail.addr})
 
-            trending_count = Trending.objects.all().count()
-            # if trending_count > 50:
-            #     Trending.objects.all().aggregate(Max('point')).delete()
+            row = ViewCount.objects.filter(user_id=user_id, post_id=item.id)
+            if not row.exists() and item.isBusiness:
+                view_count = ViewCount(user_id=user_id, post_id=item.id)
+                view_count.save()
+                Post.objects.filter(id=item.id).update(viewCount=F('viewCount') + 1)
 
-            row = Trending.objects.filter(post_id=item.id)
-            if row.exists():
-                row.update(point=point)
-            else:
-                trending = Trending(point=point, post_id=item.id)
-                trending.save()
+            # ===================Trending Algorithm =============================
+            post_uploaded_timestamp = float(item.date)
+            now_timestamp = float(datetime.datetime.now().timestamp())
+            one_day_timestamp = 86400
+            time_elapsed = now_timestamp - post_uploaded_timestamp
+            if item.isBusiness and time_elapsed <= one_day_timestamp:
+                like_count = item.likes
+                comment_count = item.comments
+                view_count = item.viewCount + 1
+                point = (view_count + (like_count * 1.25) + (comment_count * 1.50)) / time_elapsed
 
-            if datetime.datetime.now().timestamp() > float(item.date)+86400:
-                Trending.objects.filter(post_id=item.id).delete()
+                # trending_count = Trending.objects.all().count()
+                # if trending_count > 50:
+                #     Trending.objects.all().aggregate(Max('point')).delete()
+
+                row = Trending.objects.filter(post_id=item.id)
+                if row.exists():
+                    row.update(point=point)
+                else:
+                    trending = Trending(point=point, post_id=item.id)
+                    trending.save()
+
+                # if datetime.datetime.now().timestamp() > float(item.date)+86400:
+                #     Trending.objects.filter(post_id=item.id).delete()
 
     return Response({"posts": data}, status=HTTP_200_OK)
 
@@ -184,13 +209,6 @@ def handleComment(request):
     p.save()
     Post.objects.filter(id=request.data.get("postId")).update(comments=F('comments') + 1)
 
-    # activity log update ======================================================
-    user_detail = UserDetail.objects.get(user_id=user_id)
-    if user_detail.isBusiness:
-        user_activity = UserActivityLog(action="comment", post_category=user_detail.category, user_id=user_id,
-                                        post_id=post_id)
-        user_activity.save()
-    # end of activity log update ===============================================
 
     # trending algorithm =======================================================
     item = Post.objects.get(id=post_id)
@@ -243,9 +261,9 @@ def file_upload(request):
         with open(new_filename, 'wb') as f:
             f.write(img_data)
 
-        UserDetail.objects.get(user_id=user_id)
-        if UserDetail.isBusiness:
-            is_business = True
+    UserDetail.objects.get(user_id=user_id)
+    if UserDetail.isBusiness:
+        is_business = True
 
     p = Post(user_id=user_id, caption=caption, content=file_name, likes=0, comments=0,
              date=datetime.datetime.now().timestamp(), isBusiness=is_business)
@@ -336,13 +354,23 @@ def get_user_data(request):
 @csrf_exempt
 @api_view(["POST"])
 def trending(request):
-    p = Trending.objects.all()
+    p = Trending.objects.all().order_by("-id")
     data = []
     for item in p:
+        time = 0
+        post_uploaded_timestamp = float(item.post.date)
+        now_timestamp = float(datetime.datetime.now().timestamp())
+        time_elapsed = now_timestamp - post_uploaded_timestamp
+        if time_elapsed < 60:
+            time = str(int(time_elapsed))+" "+"seconds ago"
+        elif 60 < time_elapsed < 3600:
+            time = str(int(time_elapsed/60))+" "+"minutes ago"
+        elif 3600 < time_elapsed < 84600:
+            time = str(int((time_elapsed/60)/60))+" "+"hours ago"
         data.append({"id": item.post.id,
                      "caption": item.post.caption,
                      "content": item.post.content,
-                     "date": item.post.date,
+                     "date": time,
                      "likeCount": item.post.likes,
                      "commentCount": item.post.comments,
                      "username": item.post.user.username,

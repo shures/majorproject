@@ -27,7 +27,14 @@
     color: #3897f0;
     cursor: pointer;
 }
-#myProfile #about>#image>#foo>span{
+#myProfile #about>#image>#foo *{
+    text-decoration: none;
+    font-size: 14px;
+    color: #3897f0;
+    cursor: pointer;
+    margin-top: 5px;
+}
+#myProfile #about>#image>#foo span{
     margin-top: 5px;
 }
 #myProfile #about>#image>#img{

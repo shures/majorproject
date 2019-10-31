@@ -8,6 +8,16 @@
     width: 100%;
     margin-top: 85px;
 }
+#home #container>#posts>#noData{
+    color:blue;
+    text-align: center;
+    margin-top: 50px;
+    background-color: white;
+    padding:50px;
+    border-radius: 5px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.4);
+    line-height: 25px;
+}
 #home #posts{
     width: 40%;
     float:left;
@@ -25,6 +35,7 @@
     position: fixed;
     left:55%;
     bottom: 0;
+    top:95px
 }
 
 #home .shadow{

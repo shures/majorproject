@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Header} from "../../home/components/header";
 import '../css/myProfile.css';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 export class MyProfile extends React.Component {
     constructor() {
@@ -65,7 +66,7 @@ export class MyProfile extends React.Component {
                             <div id="foo">
                                 <span onClick={this.loadUploadPP}>Upload Profile</span>
                                 <span onClick={this.loadEditProfile}>Edit Profile</span>
-                                <span>Setting</span>
+                                <Link to="/setting"><span>Setting</span></Link>
                             </div>
                         </div>
                         <div id="detail">

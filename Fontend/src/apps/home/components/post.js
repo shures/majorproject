@@ -9,6 +9,7 @@ export class Post extends React.Component {
             postId: this.props.post.id,
             caption: this.props.post.caption,
             content: this.props.post.content,
+            pp:this.props.post.pp,
             liked: false,
             commented: false,
             likeCount: this.props.post.likeCount,
@@ -21,6 +22,7 @@ export class Post extends React.Component {
             isImage: 'false',
             isLiked:this.props.post.isLiked,
             comments:this.props.post.comments,
+            addr:this.props.post.addr
         };
         this.handleLike = this.handleLike.bind(this);
         this.handleComment = this.handleComment.bind(this);
@@ -80,17 +82,18 @@ export class Post extends React.Component {
         return (
             <div className="post">
                 <div id="head">
-                    <img src={require("../images/katrina.jpeg")}/>
+                    <img src={"http://127.0.0.1:8000/media/" + this.state.pp}/>
                     <div id="pack">
                         <div id="name">
                             <span>{this.state.username}</span><span>{this.state.fn}</span>
                         </div>
-                        <div id="detail">Sigapur , India home</div>
+                        <div id="detail">{this.state.addr}</div>
                     </div>
                 </div>
                 <div id="caption">
                     {this.state.caption}
                 </div>
+                <div id="time">{this.state.date}</div>
                 <div id="content">
                     {this.state.isImage ? <div id="imagePost">
                             <img src={"http://127.0.0.1:8000/media/" + this.state.content}/>
