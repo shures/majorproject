@@ -24,7 +24,7 @@ export class Header extends React.Component {
     componentWillMount() {
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/myprofile/getProfile",
+            url: sessionStorage["ip"]+"/myprofile/getProfile",
             data: {userId:sessionStorage["id"]},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
@@ -47,7 +47,7 @@ export class Header extends React.Component {
         this.setState({search: search}, () => {
             axios({
                 method: 'post',
-                url: "http://127.0.0.1:8000/app/search_key",
+                url: sessionStorage["ip"]+"/app/search_key",
                 data: {userId: sessionStorage["id"],search_key:this.state.search.search_key},
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })

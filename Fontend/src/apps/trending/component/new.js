@@ -54,7 +54,7 @@ export class Post extends React.Component {
     //     axios({
     //         method: 'post',
     //         data: {userId: sessionStorage["id"], postId: this.state.postId},
-    //         url: "http://127.0.0.1:8000/app/handleLike",
+    //         url: sessionStorage["ip"]+"/app/handleLike",
     //         headers: {Authorization: "Token " + sessionStorage["token"]}
     //     })
     //         .then(res => {
@@ -67,7 +67,7 @@ export class Post extends React.Component {
     //         axios({
     //             method: 'post',
     //             data: {userId: sessionStorage["id"], postId: this.state.postId, comment: this.state.commentInput},
-    //             url: "http://127.0.0.1:8000/app/handleComment",
+    //             url: sessionStorage["ip"]+"/app/handleComment",
     //             headers: {Authorization: "Token " + sessionStorage["token"]}
     //         })
     //             .then(res => {
@@ -94,13 +94,13 @@ export class Post extends React.Component {
                 {/*</div>*/}
                 {/*<div id="content">*/}
                 {/*    {this.state.isImage ? <div id="imagePost">*/}
-                {/*            <img src={"http://127.0.0.1:8000/media/" + this.state.content}/>*/}
+                {/*            <img src={sessionStorage["ip"]+"/media/" + this.state.content}/>*/}
                 {/*        </div> :*/}
                 {/*        <div id="videoPost">*/}
                 {/*            <video onClick={this.playPauseVideo} loop*/}
-                {/*                   poster={"http://127.0.0.1:8000/media/thumbnails/" + this.state.content.replace("mp4", "png")}*/}
+                {/*                   poster={sessionStorage["ip"]+"/media/thumbnails/" + this.state.content.replace("mp4", "png")}*/}
                 {/*                   preload="none">*/}
-                {/*                <source src={"http://127.0.0.1:8000/media/" + this.state.content}/>*/}
+                {/*                <source src={sessionStorage["ip"]+"/media/" + this.state.content}/>*/}
                 {/*            </video>*/}
                 {/*        </div>}*/}
                 {/*</div>*/}

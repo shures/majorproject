@@ -10,6 +10,7 @@ from app.models import ViewCount
 from app.models import SearchHistory
 from app.models import Follow
 from app.models import ViewCount
+from app.models import PostSave
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from django.db.models import F
@@ -26,7 +27,6 @@ from rest_framework.status import (
 from . import models
 
 now = datetime.datetime.now()
-
 
 @api_view(['POST'])
 def follow(request):
@@ -67,6 +67,7 @@ def isFollowing(request):
 
 @api_view(['POST'])
 def getPost(request):
+
     data = []
     user_id = request.data.get("userId")
     # p = Post.objects.all()
@@ -100,7 +101,7 @@ def getPost(request):
             elif 3600 < time_elapsed < 84600:
                 time = str(int((time_elapsed / 60) / 60)) + " " + "hours ago"
             elif time_elapsed > 84600:
-                time = str(int(((time_elapsed / 60) / 60)/24)) + " " + "days ago"
+                time = str(int(((time_elapsed / 60) / 60) / 24)) + " " + "days ago"
             # compare the id with the id of last item in data
             data.append({"id": item.id,
                          "caption": item.caption,
@@ -149,6 +150,7 @@ def getPost(request):
                 #     Trending.objects.filter(post_id=item.id).delete()
 
     return Response({"posts": data}, status=HTTP_200_OK)
+
 
 @api_view(['POST'])
 def handleLike(request):
@@ -209,7 +211,6 @@ def handleComment(request):
     p.save()
     Post.objects.filter(id=request.data.get("postId")).update(comments=F('comments') + 1)
 
-
     # trending algorithm =======================================================
     item = Post.objects.get(id=post_id)
     post_uploaded_timestamp = float(item.date)
@@ -237,6 +238,7 @@ def handleComment(request):
             Trending.objects.filter(post_id=item.id).delete()
 
     return Response(status=HTTP_200_OK)
+
 
 @csrf_exempt
 @api_view(["POST"])
@@ -320,6 +322,7 @@ def get_following(request):
         data = ""
     return Response({"data": data}, status=HTTP_200_OK)
 
+
 @csrf_exempt
 @api_view(["POST"])
 @permission_classes((AllowAny,))
@@ -345,11 +348,14 @@ def search_key(request):
                     data.append({'username': user.username, 'fn': user.first_name, 'id': user.id})
 
     return Response({"data": data}, status=HTTP_200_OK)
+
+
 @csrf_exempt
 @api_view(["GET"])
 def get_user_data(request):
     user = UserDetail.objects.get(id=request.user.id)
     return Response({"file_name": user.file_name}, status=HTTP_200_OK)
+
 
 @csrf_exempt
 @api_view(["POST"])
@@ -362,11 +368,11 @@ def trending(request):
         now_timestamp = float(datetime.datetime.now().timestamp())
         time_elapsed = now_timestamp - post_uploaded_timestamp
         if time_elapsed < 60:
-            time = str(int(time_elapsed))+" "+"seconds ago"
+            time = str(int(time_elapsed)) + " " + "seconds ago"
         elif 60 < time_elapsed < 3600:
-            time = str(int(time_elapsed/60))+" "+"minutes ago"
+            time = str(int(time_elapsed / 60)) + " " + "minutes ago"
         elif 3600 < time_elapsed < 84600:
-            time = str(int((time_elapsed/60)/60))+" "+"hours ago"
+            time = str(int((time_elapsed / 60) / 60)) + " " + "hours ago"
         data.append({"id": item.post.id,
                      "caption": item.post.caption,
                      "content": item.post.content,
@@ -376,6 +382,7 @@ def trending(request):
                      "username": item.post.user.username,
                      "fn": item.post.user.first_name})
     return Response({"posts": data}, status=HTTP_200_OK)
+
 
 @api_view(['POST'])
 def getPostItem(request):
@@ -401,6 +408,7 @@ def getPostItem(request):
                      "isLiked": is_liked,
                      "comments": comment_set,
                      "viewCount": item.viewCount}, status=HTTP_200_OK)
+
 
 @api_view(['POST'])
 def sugg(request):
@@ -479,6 +487,7 @@ def sugg(request):
             get_users(view_categories, user_id, data)
     return Response({"data": data}, status=HTTP_200_OK)
 
+
 def get_users(categories, user_id, data):
     users = UserDetail.objects.filter(isBusiness=True, category=most_frequent(categories)).order_by("-id")[:3]
     for user in users:
@@ -504,3 +513,52 @@ def most_frequent(List):
             counter = curr_frequency
             num = i
     return num
+
+
+@api_view(['POST'])
+def getMyPost(request):
+    data = []
+    user_id = request.data.get("userId")
+    p = Post.objects.filter(user_id=user_id)
+    for item in p:
+        time = 0
+        post_uploaded_timestamp = float(item.date)
+        now_timestamp = float(datetime.datetime.now().timestamp())
+        time_elapsed = now_timestamp - post_uploaded_timestamp
+        if time_elapsed < 60:
+            time = str(int(time_elapsed)) + " " + "seconds ago"
+        elif 60 < time_elapsed < 3600:
+            time = str(int(time_elapsed / 60)) + " " + "minutes ago"
+        elif 3600 < time_elapsed < 84600:
+            time = str(int((time_elapsed / 60) / 60)) + " " + "hours ago"
+        data.append({"id": item.id,
+                     "caption": item.caption,
+                     "content": item.content,
+                     "date": time,
+                     "likeCount": item.likes,
+                     "commentCount": item.comments})
+
+    return Response({"data": data}, status=HTTP_200_OK)
+
+@api_view(['POST'])
+def getMySaved(request):
+    data = []
+    user_id = request.data.get("userId")
+    print(user_id)
+    p = PostSave.objects.filter(user_id=user_id)
+    for item in p:
+        data.append({"id": item.post.id,
+                     "caption": item.post.caption,
+                     "content": item.post.content,
+                     "likeCount": item.post.likes,
+                     "commentCount": item.post.comments})
+
+    return Response({"data": data}, status=HTTP_200_OK)
+
+@api_view(['POST'])
+def savePost(request):
+    user_id = request.data.get("userId")
+    post_id = request.data.get("postId")
+    p = PostSave(post_id=post_id, user_id=user_id)
+    p.save()
+    return Response({"data": data}, status=HTTP_200_OK)

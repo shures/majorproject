@@ -89,7 +89,7 @@ class SignUpBox extends React.Component {
                 this.setState({"status":"Signing Up ..."});
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:8000/account/signUp',
+                url: sessionStorage["ip"]+'/account/signUp',
                 data: {email:this.state.email,username:this.state.username,fullName:this.state.fullName,password:this.state.password1}
             }).then((response) => {
                 this.setState({"status":"Sign Up"});

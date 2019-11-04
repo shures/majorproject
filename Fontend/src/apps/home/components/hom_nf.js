@@ -19,7 +19,7 @@ export class Hom_nf extends React.Component {
         let data = {caption:this.state.caption,user_id:sessionStorage["id"],fileName:this.props.file.selectedFile.name};
         axios({
                 method: 'post',
-                url: "http://127.0.0.1:8000/app/postUpload",
+                url: sessionStorage["ip"]+"/app/postUpload",
                 data:data,
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })

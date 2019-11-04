@@ -62,7 +62,7 @@ class SwitchToBusiness extends React.Component{
     componentDidMount() {
          axios({
             method: "post",
-            url: "http://127.0.0.1:8000/account/getCategory",
+            url: sessionStorage["ip"]+"/account/getCategory",
             data: {userId:sessionStorage["id"]},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
@@ -85,7 +85,7 @@ class SwitchToBusiness extends React.Component{
     handleUpdate(){
          axios({
             method: "post",
-            url: "http://127.0.0.1:8000/account/switchToBusiness",
+            url: sessionStorage["ip"]+"/account/switchToBusiness",
             data: {userId:sessionStorage["id"],"category":this.state.selection,"name":this.state.name,"username":this.state.username},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {

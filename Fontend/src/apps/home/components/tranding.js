@@ -11,7 +11,7 @@ export class Tranding extends React.Component {
     componentWillMount() {
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/app/trending",
+            url: sessionStorage["ip"]+"/app/trending",
             data: {userId:sessionStorage["id"]},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
@@ -43,7 +43,7 @@ class Item extends React.Component{
         return (
             <div className="item">
                 <div id="img">
-                    <img src={"http://127.0.0.1:8000/media/" + this.props.item.content}/>
+                    <img src={sessionStorage["ip"]+"/media/" + this.props.item.content}/>
                 </div>
                 <div id="pack">
                     <div id="username">{this.props.item.username}</div>

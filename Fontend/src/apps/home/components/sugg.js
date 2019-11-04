@@ -12,7 +12,7 @@ export class Sugg extends React.Component {
     componentWillMount() {
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/app/sugg",
+            url: sessionStorage["ip"]+"/app/sugg",
             data: {userId:sessionStorage["id"]},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
@@ -52,7 +52,7 @@ class Item extends React.Component{
     follow(id) {
         axios({
             method: 'post',
-            url: "http://127.0.0.1:8000/app/follow",
+            url: sessionStorage["ip"]+"/app/follow",
             data: {local_id: sessionStorage["id"], remote_id:id},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         })
@@ -77,7 +77,7 @@ class Item extends React.Component{
         }
         return(
             <div className="item" onClick={()=>{this.gotoProfile(this.props.item.username)}}>
-                <img src={"http://127.0.0.1:8000/media/" + this.props.item.pp}/>
+                <img src={sessionStorage["ip"]+"/media/" + this.props.item.pp}/>
                 <div id="pack">
                     <div id="username">{this.props.item.username}</div>
                     <div id="foo">{this.props.item.name}</div>

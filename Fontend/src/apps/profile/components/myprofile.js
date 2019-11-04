@@ -15,7 +15,10 @@ export class MyProfile extends React.Component {
             quote2:'',
             quote3:'',
             site:'',
-            profilePic:''
+            profilePic:'',
+            follower:'',
+            followed:'',
+            post:''
         };
         this.loadUploadPP = this.loadUploadPP.bind(this);
         this.loadEditProfile = this.loadEditProfile.bind(this);
@@ -34,7 +37,7 @@ export class MyProfile extends React.Component {
         if (this.state.profilePic === "") {
             return <img src={require('./../images/add-user.png')}/>
         } else {
-            return <img src={"http://127.0.0.1:8000/media/" + this.state.profilePic}/>
+            return <img src={sessionStorage["ip"]+"/media/" + this.state.profilePic}/>
         }
 
     }
@@ -42,12 +45,13 @@ export class MyProfile extends React.Component {
     componentWillMount() {
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/myprofile/getProfile",
+            url: sessionStorage["ip"]+"/myprofile/getProfile",
             data: {userId:sessionStorage["id"],from:'userProfile'},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
             if(res.status===200){
-                this.setState({addr:res.data.data["addr"][0],quote1:res.data.data["quote1"][0],quote2:res.data.data["quote2"][0],quote3:res.data.data["quote3"][0],site:res.data.data["site"][0],profilePic:res.data.data["profilePic"]})
+                console.log(res.data.data["follower"]);
+                this.setState({addr:res.data.data["addr"][0],quote1:res.data.data["quote1"][0],quote2:res.data.data["quote2"][0],quote3:res.data.data["quote3"][0],site:res.data.data["site"][0],profilePic:res.data.data["profilePic"],follower:res.data.data["follower"],followed:res.data.data["followed"],post:res.data.data["post"]})
             }
         })
     }
@@ -78,15 +82,15 @@ export class MyProfile extends React.Component {
                             <div id="activity">
                                 <div id="post">
                                     <span>Post</span>
-                                    <span>125</span>
+                                    <span>{this.state.post}</span>
                                 </div>
                                 <div id="followers">
                                     <span>Follower</span>
-                                    <span>526</span>
+                                    <span>{this.state.follower}</span>
                                 </div>
                                 <div id="following">
                                     <span>Following</span>
-                                    <span>1024</span>
+                                    <span>{this.state.followed}</span>
                                 </div>
                             </div>
                             <div id="more">
@@ -97,20 +101,6 @@ export class MyProfile extends React.Component {
                             <div id="blue">
                                 <span>{this.state.site}</span>
                             </div>
-                        </div>
-                    </div>
-                    <div id="menu">
-                        <div>
-                            <span>Post</span>
-                        </div>
-                        <div>
-                            <span>Photos</span>
-                        </div>
-                        <div>
-                            <span>Tags</span>
-                        </div>
-                        <div>
-                            <span>Saved</span>
                         </div>
                     </div>
                     <Collection/>
@@ -139,7 +129,7 @@ class EditProfile extends React.Component{
     componentWillMount() {
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/myprofile/getProfile",
+            url: sessionStorage["ip"]+"/myprofile/getProfile",
             data: {userId:sessionStorage["id"]},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
@@ -153,7 +143,7 @@ class EditProfile extends React.Component{
         this.setState({uploadProfileEdit:'Uploading ...'});
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/myprofile/editProfile",
+            url: sessionStorage["ip"]+"/myprofile/editProfile",
             data: {userId:sessionStorage["id"], addr:this.state.addr,quote1:this.state.quote1,quote2:this.state.quote2,quote3:this.state.quote3,site:this.state.site},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
@@ -190,7 +180,7 @@ class EditProfile extends React.Component{
                             </div>
                             <span>shuresnepali</span>
                         </div>
-                        <div id="block">
+                        <div id="block1">
                             <input type="text" name="addr" value={this.state.addr} onChange={this.handleInput} placeholder="Give your address ..."/>
                             <input type="text" name="quote1" value={this.state.quote1} onChange={this.handleInput} placeholder="Write your quote 1 ..."/>
                             <input type="text" name="quote2" value={this.state.quote2} onChange={this.handleInput} placeholder="Write your quote 2 ..."/>
@@ -239,7 +229,7 @@ class LoadUploadPP extends React.Component {
         data.set("userId",sessionStorage["id"]);
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/myprofile/uploadPP",
+            url: sessionStorage["ip"]+"/myprofile/uploadPP",
             data: data,
             headers: {Authorization: "Token " + sessionStorage["token"]},
             onUploadProgress: (ProgressEvent) => {
@@ -281,37 +271,104 @@ class Collection extends React.Component {
     constructor() {
         super();
         this.state = {
-            photos: [[require('./../images/smartgirl.jpg'), require('./../images/large.jpg'), require('./../images/girl.jpg'), require('./../images/coding.jpg')], [require('./../images/large.jpg'), require('./../images/smartgirl.jpg'), require('./../images/coding.jpg'), require('./../images/girl.jpg')]]
-        }
+            post:true,
+            profile:false,
+            saved:false,
+            others:false,
+            postContent:[],
+            savedContent:[],
+            isPostImage: 'false',
+        };
+        this.handleClick = this.handleClick.bind(this);
     }
+    componentDidMount() {
+        axios({
+                method: 'post',
+                data:{userId:sessionStorage["id"]},
+                url: sessionStorage["ip"]+"/app/getMyPost",
+                headers: {Authorization: "Token " + sessionStorage["token"]}
+            })
+            .then(res => {
+                this.setState({postContent:res.data.data});
+                console.log(res.data.data)
+            });
+        axios({
+                method: 'post',
+                data:{userId:sessionStorage["id"]},
+                url: sessionStorage["ip"]+"/app/getMySaved",
+                headers: {Authorization: "Token " + sessionStorage["token"]}
+            })
+            .then(res => {
+                this.setState({savedContent:res.data.data});
+                //console.log(res.data.data)
+            });
+    }
+    handleClick(para){
+        if(para==="post"){
+            this.setState({post:true});
+            this.setState({saved:false});
+            this.setState({profile:false});
+        }
+        if(para==="saved"){
+            this.setState({saved:true});
+            this.setState({post:false})
+            this.setState({profile:false});
+        }
+        if(para==="profile"){
+            this.setState({saved:false});
+            this.setState({post:false});
+            this.setState({profile:true});
+        }
 
+    }
     render() {
         return (
             <div id="collection">
-                <div className="column">
-                    <div className="item">
-                        <img src={require('./../images/smartgirl.jpg')}/>
+                <div id="menu">
+                        <div>
+                            <span onClick={()=>{this.handleClick("post")}}>Post</span>
+                        </div>
+                        <div>
+                            <span onClick={()=>{this.handleClick("saved")}}>Saved</span>
+                        </div>
+                        <div>
+                            <span onClick={()=>{this.handleClick("profile")}}>Profile</span>
+                        </div>
+                        <div>
+                            <span>Others</span>
+                        </div>
                     </div>
-                    <div className="item">
-                        <img src={require('./../images/coding.jpg')}/>
+                {this.state.post ? <div id="content">
+                    {this.state.postContent.map((item)=>{
+                        return <div className="item">
+                        <div id="img">
+                            <img src={sessionStorage["ip"]+"/media/" + item.content}/>
+                        </div>
+                        <div id="pack">
+                             <span>{item.caption}</span><br/>
+                             <span>{item.likeCount} likes</span><br/>
+                            <span>{item.commentCount} Comments</span><br/>
+                        </div>
                     </div>
-                </div>
-                <div className="column">
-                    <div className="item">
-                        <img src={require('./../images/girl.jpg')}/>
+                    })}
+                </div> :null}
+                {this.state.saved ? <div id="content">
+                    {this.state.savedContent.map((item)=>{
+                        return <div className="item">
+                        <div id="img">
+                            <img src={sessionStorage["ip"]+"/media/" + item.content}/>
+                        </div>
+                        <div id="pack">
+                             <span>{item.caption}</span><br/>
+                             <span>{item.likeCount} likes</span><br/>
+                            <span>{item.commentCount} Comments</span><br/>
+                        </div>
                     </div>
-                    <div className="item">
-                        <img src={require('./../images/smartgirl.jpg')}/>
-                    </div>
-                </div>
-                <div className="column">
-                    <div className="item">
-                        <img src={require('./../images/coding.jpg')}/>
-                    </div>
-                    <div className="item">
-                        <img src={require('./../images/girl.jpg')}/>
-                    </div>
-                </div>
+                    })}
+                </div> :null}
+                {this.state.profile ? <div id="content">
+                    <span>No photos are available at the moment !!!</span>
+                </div> :null}
             </div>
         )
     }

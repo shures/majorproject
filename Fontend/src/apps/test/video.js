@@ -17,7 +17,7 @@ export class Video extends React.Component {
         data.append('file', this.state.videoPost.file, this.state.videoPost.file.name);
         axios({
               method: 'post',
-              url: 'http://127.0.0.1:8000/app/fileupload',
+              url: sessionStorage["ip"]+'/app/fileupload',
               data:data,
               headers: {Authorization: "Token " + sessionStorage["token"]},
               onUploadProgress: (ProgressEvent) => {

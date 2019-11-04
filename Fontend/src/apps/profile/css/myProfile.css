@@ -125,7 +125,13 @@
     opacity: 0.9;
     padding-top: 10px;
 }
-#myProfile #menu{
+
+#myProfile #collection{
+    margin-top: 30px;
+    width: 70%;
+    margin-bottom: 40px;
+}
+#myProfile #collection>#menu{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -133,35 +139,56 @@
     margin-top: 15px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
-#myProfile #menu>div{
+#myProfile #collection>#menu>div{
     padding: 0 5px 10px 5px;
     margin: 2px;
     color: rgba(0,0,0,0.6);
     text-align: center;
 }
-#myProfile #menu>div>span{
+#myProfile #collection>#menu>div>span{
     font-size: 14px;
+    cursor: pointer;
 }
-#myProfile #collection{
-    margin-top: 30px;
-    width: 60%;
+#myProfile #collection>#content{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
-#collection>.column{
-    display:flex;
-    flex-direction:column;
-    width: 32.8%;
+#myProfile #collection>#content>span{
+    margin-top: 50px;
+    margin-left: 200px;
+    color:rgba(0,0,0,0.5);
+    cursor: pointer;
 }
-#collection>.column>.item{
+#myProfile #collection>#content>.item{
+    margin-top: 10px;
+    margin-right: 10px;
     position: relative;
-    max-width: 100%;
-    margin-bottom: 2px;
 }
-#collection>.column>.item>img{
-    width: 100%;
+#myProfile #collection>#content>.item>#img{
+    height:200px;
+    width:200px;
+    overflow: hidden;
+    border-radius: 3px;
 }
+#myProfile #collection>#content>.item>#pack{
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    color: white;
+    left:0;
+    line-height: 20px;
+    right: 0;
+    padding:10px;
+}
+#myProfile #collection>#content>.item>#pack:hover{
+    background-color: rgba(0,0,0,0.3);
+}
+#myProfile #collection>#content>.item>#img>img{
+    width:300px;
+}
+
 
 .shadow{
     top: 0;
@@ -241,18 +268,16 @@
     right: 35%;
     top: 30px;
     background-color: white;
-    overflow-y: auto;
     border-radius: 2px;
 }
 #editProfile>#head{
-    padding-top: 10px;
-    width: 60%;
-    margin-left: 20%;
-    padding-bottom: 10px;
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
-     border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-top: 30px;
+    padding-bottom: 30px;
 }
 #editProfile>#head>#image{
     width: 70px;
@@ -266,12 +291,12 @@
 #editProfile>#head>span{
    margin-top: 15px;
 }
-#editProfile>#block{
+#editProfile>#block1{
     width: 80%;
     margin-left: 10%;
-    margin-top: 30px;
+    clear:both;
 }
-#editProfile>#block>input{
+#editProfile>#block1>input{
     border: none;
     border-bottom: 1px solid rgba(0,0,0,0.2);
     margin-top: 30px;

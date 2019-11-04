@@ -27,7 +27,7 @@ export class User extends React.Component {
     componentWillMount() {
         axios({
             method: "post",
-            url: "http://127.0.0.1:8000/myprofile/getProfile",
+            url: sessionStorage["ip"]+"/myprofile/getProfile",
             data: {userId:sessionStorage["id"],from:'userProfile'},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
@@ -40,7 +40,7 @@ export class User extends React.Component {
         if (this.state.profilePic === "") {
             return <img src={require('./../../common/images/add-user.png')}/>
         } else {
-            return <img src={"http://127.0.0.1:8000/media/" + this.state.profilePic}/>
+            return <img src={sessionStorage["ip"]+"/media/" + this.state.profilePic}/>
         }
 
     }

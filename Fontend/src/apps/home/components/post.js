@@ -22,15 +22,28 @@ export class Post extends React.Component {
             isImage: 'false',
             isLiked:this.props.post.isLiked,
             comments:this.props.post.comments,
-            addr:this.props.post.addr
+            addr:this.props.post.addr,
+            isSaved:false,
         };
         this.handleLike = this.handleLike.bind(this);
         this.handleComment = this.handleComment.bind(this);
         this.handleCommentInput = this.handleCommentInput.bind(this);
         this.playPauseVideo = this.playPauseVideo.bind(this);
+        this.handleSaved = this.handleSaved.bind(this);
 
     }
+    handleSaved() {
+        alert("ok");
+        this.setState({isSaved: !this.state.isSaved});
+        axios({
+            method: 'post',
+            data: {userId: sessionStorage["id"], postId: this.state.postId},
+            url: sessionStorage["ip"]+"/app/savePost",
+            headers: {Authorization: "Token " + sessionStorage["token"]}
+        }).then(res => {
 
+        });
+    }
     componentWillMount() {
         let dotPosition = this.state.content.lastIndexOf('.');
         let extension = this.state.content.substr(dotPosition + 1);
@@ -56,7 +69,7 @@ export class Post extends React.Component {
         axios({
             method: 'post',
             data: {userId: sessionStorage["id"], postId: this.state.postId},
-            url: "http://127.0.0.1:8000/app/handleLike",
+            url: sessionStorage["ip"]+"/app/handleLike",
             headers: {Authorization: "Token " + sessionStorage["token"]}
         })
             .then(res => {
@@ -69,7 +82,7 @@ export class Post extends React.Component {
             axios({
                 method: 'post',
                 data: {userId: sessionStorage["id"], postId: this.state.postId, comment: this.state.commentInput},
-                url: "http://127.0.0.1:8000/app/handleComment",
+                url: sessionStorage["ip"]+"/app/handleComment",
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })
                 .then(res => {
@@ -82,7 +95,7 @@ export class Post extends React.Component {
         return (
             <div className="post">
                 <div id="head">
-                    <img src={"http://127.0.0.1:8000/media/" + this.state.pp}/>
+                    <img src={sessionStorage["ip"]+"/media/" + this.state.pp}/>
                     <div id="pack">
                         <div id="name">
                             <span>{this.state.username}</span><span>{this.state.fn}</span>
@@ -96,13 +109,13 @@ export class Post extends React.Component {
                 <div id="time">{this.state.date}</div>
                 <div id="content">
                     {this.state.isImage ? <div id="imagePost">
-                            <img src={"http://127.0.0.1:8000/media/" + this.state.content}/>
+                            <img src={sessionStorage["ip"]+"/media/" + this.state.content}/>
                         </div> :
                         <div id="videoPost">
                             <video onClick={this.playPauseVideo} loop
-                                   poster={"http://127.0.0.1:8000/media/thumbnails/" + this.state.content.replace("mp4", "png")}
+                                   poster={sessionStorage["ip"]+"/media/thumbnails/" + this.state.content.replace("mp4", "png")}
                                    preload="none">
-                                <source src={"http://127.0.0.1:8000/media/" + this.state.content}/>
+                                <source src={sessionStorage["ip"]+"/media/" + this.state.content}/>
                             </video>
                         </div>}
                 </div>
@@ -111,7 +124,7 @@ export class Post extends React.Component {
                         <img src={require("../images/001-heart.png")} onClick={this.handleLike}/>}
                     <img src={require("../images/003-comment.png")} onClick={this.handleComment}/>
                     <img src={require("../images/004-share.png")}/>
-                    <img src={require("../images/005-money.png")}/>
+                    <img src={require("../images/005-money.png")} onClick={this.handleSaved}/>
                 </div>
                 <div id="count">
                     <span>{this.state.likeCount} likes</span>

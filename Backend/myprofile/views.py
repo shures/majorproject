@@ -11,6 +11,8 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from .models import UserDetail
+from app.models import Follow
+from app.models import Post
 
 
 @csrf_exempt
@@ -62,6 +64,10 @@ def get_profile(request):
 
     user_detail = UserDetail.objects.filter(user_id=user_id)
     for item in user_detail:
+        follower = Follow.objects.filter(follower_id=user_id).count()
+        followed = Follow.objects.filter(followed_id=user_id).count()
+        post = Post.objects.filter(id=user_id).count()
+
         data["addr"] = item.addr,
         data["quote1"] = item.quote1,
         data["quote2"] = item.quote2,
@@ -69,5 +75,10 @@ def get_profile(request):
         data["site"] = item.site,
         data["profilePic"] = item.file_name
         data["isBusiness"] = item.isBusiness
+        data["follower"] = follower
+        data["followed"] = followed
+        data["post"] = post
+        print(follower)
+        print(followed)
         print(data["isBusiness"])
     return Response({"data": data}, status=HTTP_200_OK)

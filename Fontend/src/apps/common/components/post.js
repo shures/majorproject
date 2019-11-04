@@ -22,7 +22,7 @@ export class PostOpen extends React.Component{
         axios({
                 method: 'post',
                 data:{userId:sessionStorage["id"],postId:this.props.id},
-                url: "http://127.0.0.1:8000/app/getPostItem",
+                url: sessionStorage["ip"]+'/app/getPostItem',
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })
             .then(res => {
@@ -53,7 +53,7 @@ export class PostOpen extends React.Component{
         axios({
             method: 'post',
             data: {userId: sessionStorage["id"], postId: this.state.post.id},
-            url: "http://127.0.0.1:8000/app/handleLike",
+            url: sessionStorage["ip"]+'/app/handleLike',
             headers: {Authorization: "Token " + sessionStorage["token"]}
         })
             .then(res => {
@@ -66,7 +66,7 @@ export class PostOpen extends React.Component{
             axios({
                 method: 'post',
                 data: {userId: sessionStorage["id"], postId: this.state.post.id, comment: this.state.commentInput},
-                url: "http://127.0.0.1:8000/app/handleComment",
+                url: sessionStorage["ip"]+'/app/handleComment',
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })
                 .then(res => {
@@ -84,13 +84,13 @@ export class PostOpen extends React.Component{
                <div id="postUp">
                    <div id="img">
                     {this.state.isImage ? <div id="imagePost" >
-                            <img src={"http://127.0.0.1:8000/media/" + this.state.post.content}/>
+                            <img src={sessionStorage["ip"]+'/media/' + this.state.post.content}/>
                         </div> :
                         <div id="videoPost">
                             <video onClick={this.playPauseVideo} loop
-                                   poster={"http://127.0.0.1:8000/media/thumbnails/" + this.state.post.content.replace("mp4", "png")}
+                                   poster={sessionStorage["ip"]+'/media/thumbnails/' + this.state.post.content.replace("mp4", "png")}
                                    preload="none">
-                                <source src={"http://127.0.0.1:8000/media/" + this.state.post.content}/>
+                                <source src={sessionStorage["ip"]+'/media/' + this.state.post.content}/>
                             </video>
                         </div>}
                         <div id="status">{this.state.post.caption}</div>

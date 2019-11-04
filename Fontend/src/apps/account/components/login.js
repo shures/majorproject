@@ -52,7 +52,7 @@ class LoginBox extends Component {
         } else {
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:8000/account/login',
+                url: sessionStorage["ip"]+'/account/login',
                 data: {email: this.state.email, password: this.state.password}
             }).then((response) => {
                 console.log(response.data.error);

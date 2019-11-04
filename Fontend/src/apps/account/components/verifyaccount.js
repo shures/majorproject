@@ -24,7 +24,7 @@ export class VerifyAccount extends React.Component {
             this.setState({status:'wait ...'});
             axios({
             method: 'post',
-            url: 'http://127.0.0.1:8000/account/verifyAccount',
+            url: sessionStorage["ip"]+'/account/verifyAccount',
             data: {
                 email:sessionStorage["email"],
                 code:this.state.code

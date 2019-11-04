@@ -62,7 +62,7 @@ export class Home extends React.Component {
         data.append('file', this.state.fileUpload.selectedFile, this.state.fileUpload.selectedFile.name);
         axios({
               method: 'post',
-              url: 'http://127.0.0.1:8000/app/fileupload',
+              url: sessionStorage["ip"]+'/app/fileupload',
               data:data,
               headers: {Authorization: "Token " + sessionStorage["token"]},
               onUploadProgress: (ProgressEvent) => {
@@ -80,7 +80,7 @@ export class Home extends React.Component {
         axios({
                 method: 'post',
                 data:{userId:sessionStorage["id"]},
-                url: "http://127.0.0.1:8000/app/getPost",
+                url: sessionStorage["ip"]+"/app/getPost",
                 headers: {Authorization: "Token " + sessionStorage["token"]}
             })
             .then(res => {
@@ -141,7 +141,7 @@ class VideoUploadPost extends React.Component{
         data.append('file', this.props.videoUploadPost.file, this.props.videoUploadPost.file.name);
         axios({
               method: 'post',
-              url: 'http://127.0.0.1:8000/app/fileupload',
+              url: sessionStorage["ip"]+'/app/fileupload',
               data:data,
               headers: {Authorization: "Token " + sessionStorage["token"]},
               onUploadProgress: (ProgressEvent) => {
@@ -216,7 +216,7 @@ class ImageUploadPost extends React.Component{
         data.append('file', this.props.imageUploadPost.file, this.props.imageUploadPost.file.name);
         axios({
               method: 'post',
-              url: 'http://127.0.0.1:8000/app/fileupload',
+              url: sessionStorage["ip"]+'/app/fileupload',
               data:data,
               headers: {Authorization: "Token " + sessionStorage["token"]},
               onUploadProgress: (ProgressEvent) => {

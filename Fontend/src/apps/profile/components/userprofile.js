@@ -37,7 +37,7 @@ export class UserProfile extends React.Component {
     follow() {
         axios({
             method: 'post',
-            url: "http://127.0.0.1:8000/app/follow",
+            url: sessionStorage["ip"]+"/app/follow",
             data: {local_id: sessionStorage["id"], remote_id: this.state.user.id[0]},
             headers: {Authorization: "Token " + sessionStorage["token"]},
         })
@@ -54,7 +54,7 @@ export class UserProfile extends React.Component {
     componentDidMount() {
         axios({
             method: 'get',
-            url: "http://127.0.0.1:8000/" + this.props.match.params.username,
+            url: sessionStorage["ip"]+"/" + this.props.match.params.username,
             params: {},
         }).then(res => {
             this.setState({loading: false});
@@ -65,7 +65,7 @@ export class UserProfile extends React.Component {
                 this.setState({user_exists: true, user: res.data.data});
                 axios({
                     method: 'post',
-                    url: "http://127.0.0.1:8000/app/isFollowing",
+                    url: sessionStorage["ip"]+"/app/isFollowing",
                     data: {local_id: sessionStorage["id"], remote_id: res.data.data["id"][0]},
                     headers: {Authorization: "Token " + sessionStorage["token"]}
                 }).then(res => {
@@ -89,7 +89,7 @@ export class UserProfile extends React.Component {
         if (this.state.profilePic === "") {
             return <img src={require('./../images/add-user.png')}/>
         } else {
-            return <img src={"http://127.0.0.1:8000/media/" + this.state.profilePic}/>
+            return <img src={sessionStorage["ip"]+"/media/" + this.state.profilePic}/>
         }
 
     }

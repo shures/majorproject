@@ -17,4 +17,7 @@ urlpatterns = [
     path("getUserDetails", views.get_user_data),
     path("trending", views.trending),
     path("sugg", views.sugg),
+    path("getMyPost", views.getMyPost),
+    path("getMySaved", views.getMySaved),
+    path("savePost", views.savePost),
 ]

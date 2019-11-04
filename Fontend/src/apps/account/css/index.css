@@ -1,6 +1,11 @@
 body{
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',Arial,'Helvetica Neue',Helvetica,sans-serif;
+}
+div#appName{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 40px;
 }
 div#header{
     height: 50px;
@@ -8,10 +13,10 @@ div#header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #e5e9f0;
+    justify-content: center;
+    margin-top: 30px;
 }
 div#header>#icon{
-    margin-left:50px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,7 +24,6 @@ div#header>#icon{
 div#header>#icon>span{
     font-size: 20px;
     font-weight: bold;
-    font-family: Chilanka;
     opacity: 0.85;
 }
 div#header>#icon>img{
@@ -27,24 +31,24 @@ div#header>#icon>img{
     margin-right: 10px;
 }
 div#header>#menu{
-    margin-left: 200px;
+    margin-left: 30px;
     display: flex;
     flex-direction: row;
 }
 
 div#header>#menu>span{
-    margin-left: 30px;
+    margin-left: 15px;
     text-transform:uppercase;
     font-size: 14px;
 }
 div#header>#download{
-    background-color:#F50057;
+    background-color:#343148;
     height: 30px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left:100px;
+    margin-left:50px;
     width: 100px;
     font-size: 13px;
     color: white;
@@ -53,20 +57,23 @@ div#header>#download{
 #motto{
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 30px;
     align-items: center;
-    background-color: #e5e9f0;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
 #motto>#title{
     font-size:27px;
     opacity: 0.9;
-    font-family:"Abyssinica SIL";
+}
+#motto>img{
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 #motto>#dis{
     font-size:15px;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 20px;
     line-height: 25px;
     opacity: 0.8;
 }
@@ -79,7 +86,7 @@ div#header>#download{
     font-size:14px;
     height: 30px;
     width: 150px;
-    background-color:#2b8a3e;
+    background-color:gray;
     color: white;
     display: flex;
     text-align: center;
@@ -97,151 +104,8 @@ div#header>#download{
     text-decoration: none;
 }
 #motto>#action>div:last-child{
-    background-color: #F50057;
+    background-color: lightslategray;
 }
 #motto>#action>div:last-child:hover{
     background-color: rgba(0,0,0,0.8);
 }
-#design{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#design>div{
-    width: 70%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-#design>div>img{
-    height: 470px;
-}
-#design>div>div>#top{
-    margin-top: 50px;
-    font-size: 30px;
-    color: #F50057;
-}
-#design>div>div>span{
-    font-size: 22px;
-    padding-top: 20px;
-    opacity: 0.85;
-    line-height: 35px;
-
-}
-#design>div>div>div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 7px;
-}
-#design>div>div>div>img{
-    height: 50px;
-}
-#design>div>div>div>span{
-    margin-left: 20px;
-}
-#design>div>div>div:first-child{
-    margin-top: 20px;
-}
-
-footer{
-    width: 100%;
-    background-image: linear-gradient(to right bottom,#000000,#343148);
-    color:white;
-}
-footer>#top{
-    width: 96%;
-    padding:2%;
-    display: flex;
-    flex-direction: row;
-}
-footer>#top>#block1{
-    width: 20%;
-    font-size: 14px;
-    margin-left:15%;
-}
-footer>#top>#block1>.title{
-    font-size: 20px;
-    margin-top: 15px;
-    padding-bottom: 15px;
-}
-footer>#top>#block1>.item{
-    margin-top: 5px;
-    color:rgba(255,255,255,0.9);
-}
-footer>#top>#block1>#title>span{
-
-}
-
-
-footer>#top>#block2{
-    width: 20%;
-    font-size: 14px;
-}
-footer>#top>#block2>.title{
-    font-size: 20px;
-    margin-top: 15px;
-    padding-bottom: 15px;
-}
-footer>#top>#block2>.item{
-    margin-top: 5px;
-    color:rgba(255,255,255,0.9);
-}
-footer>#top>#block2>#title>span{
-
-}
-
-footer>#top>#block3{
-    width: 32%;
-    margin-left: 5%;
-    font-size: 25px;
-}
-footer>#top>#block3>#question{
-    font-size: 20px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-footer>#top>#block3>#answer{
-    font-size: 14px;
-    color:azure;
-    line-height: 20px;
-}
-footer>#top>#block4{
-    padding-left: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-footer>#top>#block4>img{
-
-}
-footer>#top>#block4>span{
-    font-size: 22px;
-    margin-top: 10px;
-}
-footer>#bottom{
-    width: 80%;
-    height: 50px;
-    border-top: 1px solid rgba(255,255,255,0.5);
-    color:white;
-    margin-left: 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    align-items: center;
-}
-footer>#bottom>span{
-    font-size: 14px;
-    margin-right: 30px;
-    opacity: 0.8;
-}
-
-
-
-
-
