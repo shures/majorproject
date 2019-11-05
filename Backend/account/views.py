@@ -44,6 +44,7 @@ def verifyAccount(request):
 def login(request):
     email = request.data.get("email")
     password = request.data.get("password")
+    print(email+" "+password)
     if email is None or password is None:
         return Response(status=HTTP_204_NO_CONTENT)
     user = authenticate(username=email, password=password)
@@ -63,7 +64,7 @@ def sign_up(request):
     password = request.data.get("password")
     full_name = request.data.get("fullName")
     username = request.data.get("username")
-
+    print(email+" " + password+" " + full_name+" "+username)
     verification_code = ''
     if not validateFullName(full_name):
         error.append("* full name must be >5 characters !")

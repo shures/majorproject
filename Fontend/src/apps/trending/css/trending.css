@@ -2,7 +2,7 @@
     position:absolute;
     top:85px;
     left: 14%;
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
 }
@@ -33,10 +33,12 @@
 }
 #trending #container>.item{
     position: relative;
+    width: 200px;
     height: 200px;
     margin-right: 10px;
     margin-bottom:10px;
     background-color: transparent;
+    overflow: hidden;
 }
 #trending #container>.item:hover #hover{
     display: block;
@@ -97,6 +99,6 @@
     width:100%;
 }
 #trending #container>.item>#content>#imagePost>img{
-    height: 200px;
+    width: 400px;
     border-radius: 2px;
 }

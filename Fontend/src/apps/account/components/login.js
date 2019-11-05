@@ -44,7 +44,6 @@ class LoginBox extends Component {
     }
 
     handleLogin(event) {
-        alert("clicked");
         if (!email_validation(this.state.email)) {
             this.setState({error_message: "Email is not Valid !!"})
         } else if (this.state.password.length < 8 || this.state.password.length > 30) {

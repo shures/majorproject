@@ -27,13 +27,25 @@
     align-items: center;
     cursor: pointer;
 }
-#suggestion>.item>#left>#img{
+#suggestion>.item>#left>#image{
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    border: 5px solid darkgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#suggestion>.item>#left>#image>#img{
     height: 50px;
     width: 50px;
     border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
-#suggestion>.item>#left>#img>img{
+#suggestion>.item>#left>#image>#img>img{
     width: 70px;
 }
 #suggestion>.item>#left>#pack{
@@ -66,7 +78,7 @@
     color:white;
     border-radius: 3px;
 }
-#suggestion>.item>#right>span:hover{
+#suggestion .item>#right>span:hover{
     background-color: #2b8a3e;
     cursor: pointer;
 }

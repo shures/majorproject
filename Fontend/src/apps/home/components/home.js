@@ -21,6 +21,8 @@ export class Home extends React.Component {
         this.showUploadBox = this.showUploadBox.bind(this);
         this.handleUpload=this.handleUpload.bind(this);
         this.closeUploadBox = this.closeUploadBox.bind(this);
+        this.pollLike = this.pollLike.bind(this);
+        this.pollComment = this.pollComment.bind(this);
     }
     closeUploadBox(data){
         if(data==="video"){
@@ -87,6 +89,65 @@ export class Home extends React.Component {
                 this.setState({posts:res.data.posts});
                 console.log(res.data.posts.comments)
             });
+        // setInterval(()=>{
+        //     this.pollLike();
+        //     this.pollComment();
+        // },3000);
+    }
+    pollComment(){
+        axios({
+            method: 'post',
+            data: {userId: sessionStorage["id"]},
+            url: sessionStorage["ip"]+"/app/pollComment",
+            headers: {Authorization: "Token " + sessionStorage["token"]}
+        }).then(res => {
+            if(sessionStorage.getItem("comment")!==null){
+                if (parseInt(sessionStorage["comment"])!==parseInt(res.data.comment)){
+                    sessionStorage["comment"] = res.data.comment;
+                    console.log(res.data.comment+" "+res.data.username);
+                    let posts = this.state.posts;
+                    posts.forEach((item,index)=>{
+                        if(parseInt(item.id)===parseInt(res.data.commentPostId)){
+                            console.log("yes it is");
+                            item.commentCount = res.data.commentCount;
+                            item.comments.push({"comment":res.data.commentText,"username":res.data.username});
+                            this.setState({posts:posts})
+                        }
+                    })
+                }else{
+
+                }
+            }else{
+                sessionStorage["comment"] = res.data.comment;
+            }
+        });
+    }
+    pollLike(){
+        axios({
+            method: 'post',
+            data: {userId: sessionStorage["id"]},
+            url: sessionStorage["ip"]+"/app/pollLike",
+            headers: {Authorization: "Token " + sessionStorage["token"]}
+        }).then(res => {
+            if(sessionStorage.getItem("like")!==null){
+                if (parseInt(sessionStorage["like"])!==parseInt(res.data.like)){
+                    sessionStorage["like"] = res.data.like;
+                    let posts = this.state.posts;
+                    posts.forEach((item,index)=>{
+                        console.log(item.id + " " +res.data.likePostId);
+                        if(parseInt(item.id)===parseInt(res.data.likePostId)){
+                            console.log("yes it is");
+                            item.likeCount = res.data.likeCount;
+                            this.setState({posts:posts})
+                        }
+                    })
+                }else{
+
+                }
+            }else{
+                sessionStorage["like"] = res.data.like;
+            }
+        });
     }
     render() {
         return (

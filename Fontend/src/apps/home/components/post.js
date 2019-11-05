@@ -32,8 +32,15 @@ export class Post extends React.Component {
         this.handleSaved = this.handleSaved.bind(this);
 
     }
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(this.state.postId===this.props.post.id){
+            console.log(this.props.post.comments);
+            this.setState({likeCount:this.props.post.likeCount,commentCount:this.props.post.commentCount,comments:this.props.post.comments})
+        }
+
+    }
+
     handleSaved() {
-        alert("ok");
         this.setState({isSaved: !this.state.isSaved});
         axios({
             method: 'post',
@@ -52,7 +59,9 @@ export class Post extends React.Component {
         } else if (extension === "jpg" || extension === "png") {
             this.setState({isImage: true});
         }
+
     }
+
 
     playPauseVideo(event) {
         this.state.playPauseVideo ? event.target.pause() : event.target.play();
@@ -84,10 +93,9 @@ export class Post extends React.Component {
                 data: {userId: sessionStorage["id"], postId: this.state.postId, comment: this.state.commentInput},
                 url: sessionStorage["ip"]+"/app/handleComment",
                 headers: {Authorization: "Token " + sessionStorage["token"]}
-            })
-                .then(res => {
-
-                });
+            }).then(res => {
+                this.setState({commentInput:''})
+            });
         }
     }
 

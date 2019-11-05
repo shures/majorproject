@@ -78,8 +78,10 @@ class Item extends React.Component{
           return (
             <div className="item">
                         <div id="left">
-                            <div id="img">
-                                 <img src={sessionStorage["ip"]+"/media/" + this.props.item.pp}/>
+                            <div id="image">
+                                <div id="img">
+                                    <img src={sessionStorage["ip"]+"/media/" + this.props.item.pp}/>
+                                </div>
                             </div>
                             <div id="pack" onClick={()=>{this.gotoProfile(this.props.item.username)}}>
                                 <span><b>{this.props.item.username}</b></span>

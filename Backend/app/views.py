@@ -1,6 +1,5 @@
 import base64
 import datetime
-
 from app.models import Post
 from app.models import PostComment
 from app.models import PostLike
@@ -27,6 +26,7 @@ from rest_framework.status import (
 from . import models
 
 now = datetime.datetime.now()
+
 
 @api_view(['POST'])
 def follow(request):
@@ -67,7 +67,7 @@ def isFollowing(request):
 
 @api_view(['POST'])
 def getPost(request):
-
+    request.session['abc'] = "hello"
     data = []
     user_id = request.data.get("userId")
     # p = Post.objects.all()
@@ -142,12 +142,6 @@ def getPost(request):
                 row = Trending.objects.filter(post_id=item.id)
                 if row.exists():
                     row.update(point=point)
-                else:
-                    trending = Trending(point=point, post_id=item.id)
-                    trending.save()
-
-                # if datetime.datetime.now().timestamp() > float(item.date)+86400:
-                #     Trending.objects.filter(post_id=item.id).delete()
 
     return Response({"posts": data}, status=HTTP_200_OK)
 
@@ -193,9 +187,6 @@ def handleLike(request):
                 trending = Trending(point=point, post_id=item.id)
                 trending.save()
 
-            if datetime.datetime.now().timestamp() > float(item.date) + 86400:
-                Trending.objects.filter(post_id=item.id).delete()
-
     # end of trending algorithm
 
     return Response({"data": data}, status=HTTP_200_OK)
@@ -234,10 +225,7 @@ def handleComment(request):
             trending = Trending(point=point, post_id=item.id)
             trending.save()
 
-        if datetime.datetime.now().timestamp() > float(item.date) + 86400:
-            Trending.objects.filter(post_id=item.id).delete()
-
-    return Response(status=HTTP_200_OK)
+    return Response({"data": user_id}, status=HTTP_200_OK)
 
 
 @csrf_exempt
@@ -270,20 +258,9 @@ def file_upload(request):
     p = Post(user_id=user_id, caption=caption, content=file_name, likes=0, comments=0,
              date=datetime.datetime.now().timestamp(), isBusiness=is_business)
     p.save()
+    trending = Trending(point=0, post_id=p.id)
+    trending.save()
     return Response(status=HTTP_200_OK)
-
-
-# @csrf_exempt
-# @api_view(["POST"])
-# def postUpload(request):
-#     user_id = request.data.get("user_id")
-#     caption = request.data.get("caption")
-#     file_name = request.data.get("fileName")
-#     p = Post(userId=user_id, caption=caption, content=file_name, likes=0, comments=0,
-#              date=now.strftime("%Y-%m-%d %H:%M:%S"))
-#     p.save()
-#     return Response(status=HTTP_200_OK)
-
 
 @api_view(['POST'])
 def get_follower(request):
@@ -360,8 +337,10 @@ def get_user_data(request):
 @csrf_exempt
 @api_view(["POST"])
 def trending(request):
-    p = Trending.objects.all().order_by("-id")
+    print("trending")
+    p = Trending.objects.exclude(point=0).order_by("-point")
     data = []
+    tn = 1
     for item in p:
         time = 0
         post_uploaded_timestamp = float(item.post.date)
@@ -373,6 +352,11 @@ def trending(request):
             time = str(int(time_elapsed / 60)) + " " + "minutes ago"
         elif 3600 < time_elapsed < 84600:
             time = str(int((time_elapsed / 60) / 60)) + " " + "hours ago"
+        elif time_elapsed > 84600:
+            Trending.objects.filter(id=item.id).delete()
+            continue
+        print(item.point)
+        print(tn)
         data.append({"id": item.post.id,
                      "caption": item.post.caption,
                      "content": item.post.content,
@@ -380,7 +364,9 @@ def trending(request):
                      "likeCount": item.post.likes,
                      "commentCount": item.post.comments,
                      "username": item.post.user.username,
-                     "fn": item.post.user.first_name})
+                     "fn": item.post.user.first_name,
+                     "tn": tn})
+        tn = tn + 1
     return Response({"posts": data}, status=HTTP_200_OK)
 
 
@@ -540,6 +526,7 @@ def getMyPost(request):
 
     return Response({"data": data}, status=HTTP_200_OK)
 
+
 @api_view(['POST'])
 def getMySaved(request):
     data = []
@@ -555,10 +542,38 @@ def getMySaved(request):
 
     return Response({"data": data}, status=HTTP_200_OK)
 
+
 @api_view(['POST'])
 def savePost(request):
     user_id = request.data.get("userId")
     post_id = request.data.get("postId")
     p = PostSave(post_id=post_id, user_id=user_id)
     p.save()
-    return Response({"data": data}, status=HTTP_200_OK)
+    return Response({"data": " "}, status=HTTP_200_OK)
+
+
+@api_view(['POST'])
+def pollLike(request):
+    noData = False
+    try:
+        l = PostLike.objects.latest('id')
+    except PostComment.DoesNotExist:
+        noData = True
+    if noData:
+        return Response(status=HTTP_200_OK)
+    else:
+        return Response({"like": l.id, "likeCount": l.post.likes,
+                     "likePostId": l.post.id}, status=HTTP_200_OK)
+
+@api_view(['POST'])
+def pollComment(request):
+    noData = False
+    try:
+        c = PostComment.objects.latest('id')
+    except PostComment.DoesNotExist:
+        noData = True
+    if noData:
+        return Response(status=HTTP_200_OK)
+    else:
+        return Response({"comment": c.id, "commentCount": c.post.comments,
+                     "commentPostId": c.post.id, "commentText": c.comment, "username": c.user.username}, status=HTTP_200_OK)

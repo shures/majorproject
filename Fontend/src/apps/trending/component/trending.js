@@ -120,6 +120,12 @@ class Item extends React.Component{
                         <div id="caption" >
                             {this.props.item.caption}
                         </div>
+                        <div id="caption" >
+                            {this.props.item.date}
+                        </div>
+                        <div id="caption" >
+                            Trending {this.props.item.tn}
+                        </div>
                         <div id="status">
                             <div className="pack">
                                 <img src={require("./../images/001-heart.png")}/><span>{this.props.item.likeCount}</span>

@@ -19,7 +19,9 @@ export class UserProfile extends React.Component {
             loading: true,
             user: null,
             followed: false,
-
+            follower:'',
+            post:'',
+            followedd:'',
             addr:'',
             quote1:'',
             quote2:'',
@@ -27,7 +29,8 @@ export class UserProfile extends React.Component {
             site:'',
             profilePic:'',
             name:'',
-            username:''
+            username:'',
+            fn:''
 
         };
         this.follow = this.follow.bind(this);
@@ -72,6 +75,7 @@ export class UserProfile extends React.Component {
                     this.setState({followed: res.data.data})
                 });
             }
+            console.log(res.data.data)
             this.setState({
                 addr: res.data.data["addr"],
                 quote1: res.data.data["quote1"],
@@ -80,7 +84,11 @@ export class UserProfile extends React.Component {
                 site: res.data.data["site"],
                 profilePic: res.data.data["profilePic"],
                 name: res.data.data["name"],
-                username: res.data.data["username"]
+                username: res.data.data["username"],
+                follower: res.data.data["follower"],
+                followedd:res.data.data["followed"],
+                post:res.data.data["post"],
+                fn:res.data.data["fn"]
             })
         });
     }
@@ -106,25 +114,28 @@ export class UserProfile extends React.Component {
                         <div id="userProfile">
                             <div id="about">
                                 <div id="image">
-                                    {this.isProfilePic()}
+                                    <div id="img">
+                                        {this.isProfilePic()}
+                                    </div>
                                 </div>
                                 <div id="detail">
                                     <div id="foo">
-                                        <span>{this.state.username}</span>
+                                        <span>{this.state.username}</span><br/>
                                         <div onClick={this.follow}>{this.state.followed ? <span style={{color:'darkgreen'}}>Following</span> : <span>Follow</span>}</div>
                                     </div>
                                     <div id="activity">
+                                        <span style={{color:'green',fontSize:20}}>{this.state.fn}</span>
                                         <div id="foo">
                                             <span>posts</span>
-                                            <span>125</span>
+                                            <span>{this.state.post}</span>
                                         </div>
                                         <div id="foo">
                                             <span>following</span>
-                                            <span>1254</span>
+                                            <span>{this.state.followedd}</span>
                                         </div>
                                         <div id="foo">
                                             <span>flowers</span>
-                                            <span>12</span>
+                                            <span>{this.state.follower}</span>
                                         </div>
                                     </div>
                                     <div id="name">
@@ -141,107 +152,82 @@ export class UserProfile extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <div id="menu">
-                                <span>Posts</span>
-                                <span>Tags</span>
-                                <span>Posts</span>
-                            </div>
-                            <div id="gridView">
-                                <div id="post">
-                                    <div className="row">
-                                        <div className="item">
-                                            <div id="hover">
-                                                <div id="username">
-                                                    <b>shures_nepali</b>
-                                                </div>
-                                                <div id="caption">
-                                                    Beautiful girl in sari for the first time ...
-                                                </div>
-                                                <div id="status">
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/001-heart.png")}/><span>125</span>
-                                                    </div>
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <img src={require("./../images/girl.jpg")}/>
-                                        </div>
-                                        <div className="item">
-                                            <div id="hover">
-                                                <img src={require("./../images/004-triangle.png")}/>
-                                                <div id="username">
-                                                    <b>shures_nepali</b>
-                                                </div>
-                                                <div id="caption">
-                                                    Beautiful girl in sari
-                                                </div>
-                                                <div id="status">
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/001-heart.png")}/><span>125</span>
-                                                    </div>
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <img src={require("./../images/coding.jpg")}/>
-                                        </div>
-                                        <div className="item">
-                                            <div id="hover">
-                                                <div id="username">
-                                                    <b>shures_nepali</b>
-                                                </div>
-                                                <div id="caption">
-                                                    Beautiful girl
-                                                </div>
-                                                <div id="status">
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/001-heart.png")}/><span>125</span>
-                                                    </div>
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <img src={require("./../images/dog.jpg")}/>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="item">
-                                            <div id="hover">
-                                                <div id="username">
-                                                    <b>shures_nepali</b>
-                                                </div>
-                                                <div id="caption">
-                                                    Beautiful girl in sari for the first time ...
-                                                </div>
-                                                <div id="status">
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/001-heart.png")}/><span>125</span>
-                                                    </div>
-                                                    <div className="pack">
-                                                        <img
-                                                            src={require("./../images/003-comment-in-circular-button.png")}/><span>124</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <img src={require("./../images/box.jpg")}/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <Collection/>
                         </div>
                     </div> : null
             )
         }
+    }
+}
+class Collection extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            post:true,
+            profile:false,
+            saved:false,
+            others:false,
+            postContent:[],
+            savedContent:[],
+            isPostImage: 'false',
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
+    componentDidMount() {
+        axios({
+                method: 'post',
+                data:{userId:sessionStorage["id"]},
+                url: sessionStorage["ip"]+"/app/getMyPost",
+                headers: {Authorization: "Token " + sessionStorage["token"]}
+            })
+            .then(res => {
+                this.setState({postContent:res.data.data});
+                console.log(res.data.data)
+            });
+    }
+    handleClick(para){
+        if(para==="post"){
+            this.setState({post:true});
+            this.setState({profile:false});
+        }
+        if(para==="profile"){
+            this.setState({post:false});
+            this.setState({profile:true});
+        }
+
+    }
+    render() {
+        return (
+            <div id="collection">
+                <div id="menu">
+                        <div>
+                            <span onClick={()=>{this.handleClick("post")}}>Post</span>
+                        </div>
+                        <div>
+                            <span onClick={()=>{this.handleClick("profile")}}>Profile</span>
+                        </div>
+                        <div>
+                            <span>Others</span>
+                        </div>
+                    </div>
+                {this.state.post ? <div id="content">
+                    {this.state.postContent.map((item)=>{
+                        return <div className="item">
+                        <div id="img">
+                            <img src={sessionStorage["ip"]+"/media/" + item.content}/>
+                        </div>
+                        <div id="pack">
+                             <span>{item.caption}</span><br/>
+                             <span>{item.likeCount} likes</span><br/>
+                            <span>{item.commentCount} Comments</span><br/>
+                        </div>
+                    </div>
+                    })}
+                </div> :null}
+                {this.state.profile ? <div id="content">
+                    <span>No photos are available at the moment !!!</span>
+                </div> :null}
+            </div>
+        )
     }
 }

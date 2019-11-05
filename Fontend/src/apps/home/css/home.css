@@ -34,8 +34,9 @@
     float: left;
     position: fixed;
     left:55%;
-    bottom: 0;
-    top:95px
+    bottom: 10px;
+    top:95px;
+    overflow-y: auto;
 }
 
 #home .shadow{

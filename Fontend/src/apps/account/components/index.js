@@ -7,7 +7,7 @@ export class Index extends Component{
         super();
     }
     componentDidMount() {
-        sessionStorage["ip"] = "http://3.84.191.56:8000"
+        sessionStorage["ip"] = "http://192.168.1.106:8000"
     }
     render(){
         if(sessionStorage["token"]){

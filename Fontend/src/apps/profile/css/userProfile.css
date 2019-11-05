@@ -10,14 +10,27 @@
 #userProfile>#about{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 #userProfile>#about>#image{
+    width:  175px;
+    height: 175px;
+    border-radius: 175px;
+    border:5px solid #3897f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#userProfile>#about>#image>#img{
     width:  160px;
     height: 160px;
     border-radius: 160px;
     overflow: hidden;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
-#userProfile>#about>#image>img{
+#userProfile>#about>#image>#img>img{
      width: 160px;
 }
 #userProfile>#about>#detail{
@@ -25,6 +38,8 @@
     display: flex;
     flex-direction: column;
     max-width: 250px;
+    line-height: 25px;
+    justify-content: center;
 }
 #userProfile>#about>#detail>#foo{
     display: flex;
@@ -63,6 +78,9 @@
     font-weight: bold;
     display: flex;
     flex-direction: column;
+}
+#userProfile>#about>#detail>#foo>span{
+    clear: both;
 }
 #userProfile>#about>#detail>#name>span:nth-child(2) {
     font-size: 13px;
@@ -179,6 +197,65 @@
     border-radius: 20px;
     padding: 3px;
 }
-#userProfile #gridView #post .row>.item>img{
+#collection{
+    margin-top: 30px;
+    width: 70%;
+    margin-bottom: 40px;
+}
+ #collection>#menu{
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+ #collection>#menu>div{
+    padding: 0 5px 10px 5px;
+    margin: 2px;
+    color: rgba(0,0,0,0.6);
+    text-align: center;
+}
+#collection>#menu>div>span{
+    font-size: 14px;
+    cursor: pointer;
+}
+#collection>#content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ #collection>#content>span{
+    margin-top: 50px;
+    margin-left: 200px;
+    color:rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+ #collection>#content>.item{
+    margin-top: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+#collection>#content>.item>#img{
+    height:200px;
+    width:200px;
+    overflow: hidden;
+    border-radius: 3px;
+}
+#collection>#content>.item>#pack{
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    color: white;
+    left:0;
+    line-height: 20px;
+    right: 0;
+    padding:10px;
+}
+#collection>#content>.item>#pack:hover{
+    background-color: rgba(0,0,0,0.3);
+}
+#collection>#content>.item>#img>img{
+    width:300px;
 }

@@ -20,4 +20,6 @@ urlpatterns = [
     path("getMyPost", views.getMyPost),
     path("getMySaved", views.getMySaved),
     path("savePost", views.savePost),
+    path("pollLike", views.pollLike),
+    path("pollComment", views.pollComment),
 ]

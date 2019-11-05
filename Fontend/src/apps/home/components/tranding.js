@@ -16,6 +16,8 @@ export class Tranding extends React.Component {
             headers: {Authorization: "Token " + sessionStorage["token"]},
         }).then(res => {
             if(res.status===200){
+                console.log(res.data.posts);
+                console.log("hello");
                 this.setState({posts:res.data.posts})
             }
         })
@@ -43,12 +45,15 @@ class Item extends React.Component{
         return (
             <div className="item">
                 <div id="img">
-                    <img src={sessionStorage["ip"]+"/media/" + this.props.item.content}/>
+                    <div id="img1">
+                        <img src={sessionStorage["ip"]+"/media/" + this.props.item.content}/>
+                    </div>
                 </div>
                 <div id="pack">
                     <div id="username">{this.props.item.username}</div>
                     <div id="dis">{this.props.item.caption}</div>
                     <div id="time">{this.props.item.date}</div>
+                    <div id="time">Trending {this.props.item.tn}</div>
                 </div>
             </div>
         );

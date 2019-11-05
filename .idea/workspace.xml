@@ -2,38 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d0c1513-6eac-4a77-963f-de07d31378f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Fontend/npm-debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fontend/src/apps/account/images/camera1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/BeautyPlus_20191003072914425_save.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191002_105514.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_084027.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_084027_MPbyQ0w.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_084027_VqKcZk0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_141145.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_141145_l1yNO72.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_143413.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_143413_D09XGOU.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_145958.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_145958_i3JhEKF.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_150000.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/media/IMG_20191012_150000_3YRdocz.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/npm-debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/Backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Backend/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Backend/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/account/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/myprofile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/myprofile/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/npm-debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/npm-debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/account/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/account/components/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/account/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/account/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/account/components/signUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/account/components/signUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/account/components/verifyaccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/account/components/verifyaccount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/account/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/account/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/common/components/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/common/components/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/follow.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/follow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/hom_nf.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/hom_nf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/sugg.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/sugg.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/tranding.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/tranding.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/components/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/components/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/components/myprofile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/components/myprofile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/components/setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/components/setting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/home/css/tranding.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/home/css/tranding.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/components/userprofile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/components/userprofile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/css/myProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/css/myProfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/profile/css/userProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/profile/css/userProfile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/sugg/components/sugg.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/sugg/components/sugg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/test/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/test/video.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/trending/component/new.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/trending/component/new.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/sugg/css/sugg.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/sugg/css/sugg.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fontend/src/apps/trending/component/trending.js" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/trending/component/trending.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/Mobile/android/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/Mobile/android/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fontend/src/apps/trending/css/trending.css" beforeDir="false" afterPath="$PROJECT_DIR$/Fontend/src/apps/trending/css/trending.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +78,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.last.introduce.type" value="LET" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Fontend/src/apps/account/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -159,7 +162,14 @@
       <workItem from="1572752138944" duration="3463000" />
       <workItem from="1572835089559" duration="3728000" />
       <workItem from="1572846815346" duration="5453000" />
-      <workItem from="1572857658514" duration="14704000" />
+      <workItem from="1572857658514" duration="20201000" />
+      <workItem from="1572886917838" duration="4244000" />
+      <workItem from="1572922129722" duration="5747000" />
+      <workItem from="1572932492774" duration="7836000" />
+      <workItem from="1572942826858" duration="2143000" />
+      <workItem from="1572950039012" duration="4853000" />
+      <workItem from="1572958941635" duration="1120000" />
+      <workItem from="1572960148509" duration="16475000" />
     </task>
     <servers />
   </component>
@@ -181,5 +191,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Backend/app/views.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
